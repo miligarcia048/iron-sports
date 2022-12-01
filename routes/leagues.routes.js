@@ -1,9 +1,11 @@
 const express = require('express');
 const router = express.Router();
 
-router.get("/leagues", (req, res, next) => {
+router.get("/leagues", async (req, res, next) => {
     try {
-        res.render("leagues/leagues");
+			 const allLeagues = await apiService.getAllLEagues();
+        res.render("leagues/leagues" , {leagues: allLeagues });
+
 
     } catch (error) {
         next(error)
