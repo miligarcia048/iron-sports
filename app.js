@@ -22,11 +22,19 @@ require("./config")(app);
 const capitalize = require("./utils/capitalize");
 const projectName = "iron-sports";
 
-app.locals.appTitle = `${capitalize(projectName)} created with IronLauncher`;
+app.locals.appTitle = `${capitalize(projectName)}`;
 
 // 👇 Start handling routes here
 const indexRoutes = require("./routes/index.routes");
+const leagueRoutes = require("./routes/leagues.routes");
+const newsRoutes = require("./routes/news.routes");
+const teamRoutes = require("./routes/team.routes");
+
+
 app.use("/", indexRoutes);
+app.use("/", leagueRoutes);
+app.use("/", newsRoutes);
+app.use("/", teamRoutes);
 
 // ❗ To handle errors. Routes that don't exist or errors that you handle in specific routes
 require("./error-handling")(app);
