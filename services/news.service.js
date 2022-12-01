@@ -19,7 +19,7 @@ class ApiService {
     return this.api
       .get(this.baseURL, { params: params })
       .then((response) => {
-        console.log("data", response.data);
+        return response.data
       })
       .catch((err) => {
         console.log(err);

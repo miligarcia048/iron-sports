@@ -6,8 +6,8 @@ const apiService = new ApiService();
 
 router.get("/news", async (req, res, next) => {
     try {
-      await apiService.getAllNews();
-      res.render("news/news");
+      const allNews = await apiService.getAllNews();
+      res.render("news/news", { news: allNews });
     } catch (error) {
       next(error);
     }
