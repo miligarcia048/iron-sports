@@ -13,4 +13,14 @@ router.get("/leagues", async (req, res, next) => {
     }
 });
 
+router.get("/leagues/:leagueID/teams", async (req, res, next) => {
+    try {
+        const { leagueID } = req.params;
+        const leagueTeams = await apiService.getLeagueTeams(leagueID);
+        res.render("leagues/teams" , { teams: leagueTeams.data.teams});
+    } catch (error) {
+        next(error)
+    }
+});
+
 module.exports = router;
