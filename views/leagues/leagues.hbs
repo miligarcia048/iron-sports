@@ -7,11 +7,11 @@
     <title>Document</title>
 </head>
 <body>
-    {{#each leagues}}
+    {{#each competitions}}
     <div class="card" style="width: 18rem;">
-        <img src="https://media.api-sports.io/football/leagues/{{league.id}}.png" class="card-img-top" alt="...">
+        <img src="{{emblem}}" class="card-img-top" alt="...">
         <div class="card-body">
-            <h5 class="card-title">{{league.name}}</h5>
+            <h5 class="card-title">{{name}}</h5>
             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
             <a href="#" class="btn btn-primary">Check League</a>
          </div>

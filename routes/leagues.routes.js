@@ -6,8 +6,8 @@ const apiService = new ApiService();
 
 router.get("/leagues", async (req, res, next) => {
     try {
-        const allLeagues = await apiService.getAllLeagues();
-        res.render("leagues/leagues" , { leagues: allLeagues });
+        const allCompetitions = await apiService.getAllCompetitions();
+        res.render("leagues/leagues" , { competitions: allCompetitions.data.competitions });
     } catch (error) {
         next(error)
     }
