@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    {{#if team.coach}}
+
+    <div class="card" style="width: 18rem;">
+        <img src="{{team.crest}}" class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5 class="card-title">Coach {{team.coach.name}}</h5>
+            <span>Nationality: {{team.coach.nationality}}</span> <br>
+            <span>Contract: {{team.coach.contract.start}} - {{team.coach.contract.until}}</span>
+         </div>
+    </div>
+
+    {{/if}}
+
+    {{#if team.squad}}
+
+    {{#each team.squad}}
+    
+    <div class="card" style="width: 18rem;">
+        <img src="{{team.crest}}" class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5 class="card-title">{{name}}</h5>
+            <p class="card-text">
+                Position: {{position}} <br>
+                Nationality: {{nationality}}
+            </p>
+            <a href="#" class="btn btn-primary">Check League</a>
+         </div>
+    </div>
+    {{/each}}
+    
+    {{/if}}
+    
+</body>
+</html>

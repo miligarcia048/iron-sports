@@ -19,6 +19,10 @@ class ApiService {
   getLeagueTeams = (leagueID) => {
     return this.api.get(`/competitions/${leagueID}/teams`);
   };
+
+  getOneTeam = (teamID) => {
+    return this.api.get(`/teams/${teamID}`);
+  };
 }
 
 module.exports = ApiService;

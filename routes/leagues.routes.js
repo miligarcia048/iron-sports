@@ -23,4 +23,15 @@ router.get("/leagues/:leagueID/teams", async (req, res, next) => {
     }
 });
 
+router.get("/leagues/:teamID/team", async (req, res, next) => {
+    try {
+        const { teamID } = req.params;
+        const selectedTeam = await apiService.getOneTeam(teamID);
+        console.log(selectedTeam.data)
+        res.render("leagues/team-info" , { team: selectedTeam.data});
+    } catch (error) {
+        next(error)
+    }
+});
+
 module.exports = router;
