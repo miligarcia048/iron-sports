@@ -14,7 +14,10 @@
                 <img src="{{emblem}}" class="card-img-top" alt="...">
                 <div class="card-body">
                     <h5 class="card-title">{{name}}</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    {{#if area.flag}}
+                    <img src="{{area.flag}}" class="card-img-top" alt="..." width="24px" height="24px">
+                    {{/if}}
+                    <p class="card-text">{{code}}</p>
                     <a href="leagues/{{id}}/teams" class="btn btn-primary">Check League</a>
                  </div>
             </div>

@@ -7,6 +7,35 @@
     <title>Document</title>
 </head>
 <body>
+
+    <div>
+        <h1>League Matches</h1>
+            <table class="table table-dark">
+                <thead>
+                    <th>Team 1</th>
+                    <th>Team 2</th>
+                    <th>Date</th>
+                    <th>Status</th>
+                    <th>Stage</th>
+                    <th>Result</th>
+                </thead>
+                <tbody>
+                    {{#each matches}}
+                    <tr>
+                        <th>{{homeTeam.name}} <img src="{{homeTeam.crest}}" width="15px" height="15px"></th>
+                        <td>{{awayTeam.name}} <img src="{{awayTeam.crest}}" width="15px" height="15px"></td>
+                        <td>{{utcDate}}</td>
+                        <td>{{status}}</td>
+                        {{#if stage}}<td>{{stage}}</td>{{/if}}
+                        <td>{{score.winner}}</td>
+                    </tr>
+                    {{/each}}
+                </tbody>
+        </table>
+    </div>
+
+    
+    <h2>League Teams</h2>
     <div class="row row-cols-1 row-cols-md-5 g-5">
         {{#each teams}}
         <div class="col">
@@ -14,7 +43,11 @@
                 <img src="{{crest}}" class="card-img-top" alt="...">
                 <div class="card-body">
                     <h5 class="card-title">{{name}}</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <p class="card-text">
+                        {{#if venue}} Venue: {{venue}} <br> {{/if}}
+                        {{#if founded }}Founded: <strong>{{founded}}</strong> <br> {{/if}}
+                        {{#if website}} Website: <a href="{{website}}">{{website}}</a> {{/if}}
+                    </p>
                     <a href="../{{id}}/team" class="btn btn-primary">Check Team</a>
                  </div>
             </div>
