@@ -7,23 +7,30 @@
     <title>Document</title>
 </head>
 <body>
+<div class="container">
     <div class="row row-cols-1 row-cols-md-5 g-5">
         {{#each competitions}}
-        <div class="col">
-            <div class="card" style="width: 18rem;">
+        <div class="col d-flex align-items-stretch">
+            <div class="card " style="width: 18rem;">
                 <img src="{{emblem}}" class="card-img-top" alt="...">
                 <div class="card-body">
-                    <h5 class="card-title">{{name}}</h5>
+
+                    <h5 class="card-title ">{{name}}</h5>
+<div class="d-flex ">
                     {{#if area.flag}}
+<div >
                     <img src="{{area.flag}}" class="card-img-top" alt="..." width="24px" height="24px">
+</div>
                     {{/if}}
-                    <p class="card-text">{{code}}</p>
+
+                    <p class="card-text ms-2">{{code}}</p>
+</div>
                     <a href="leagues/{{id}}/teams" class="btn btn-primary">Check League</a>
                  </div>
             </div>
         </div>
         {{/each}}
     </div>
-
+</div>
 </body>
 </html>
