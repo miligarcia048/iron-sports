@@ -32,7 +32,7 @@
                     <tr>
                         <th>{{homeTeam.name}} <img src="{{homeTeam.crest}}" width="15px" height="15px"></th>
                         <td>{{awayTeam.name}} <img src="{{awayTeam.crest}}" width="15px" height="15px"></td>
-                        <td>{{utcDate}}</td>
+                        <td>{{dateFormat utcDate "dddd, MMMM Do YYYY"}} </td>
                         <td>{{status}}</td>
                         {{#if stage}}<td>{{stage}}</td>{{/if}}
                         <td> 
