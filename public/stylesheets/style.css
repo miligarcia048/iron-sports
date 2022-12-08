@@ -27,3 +27,14 @@ h1 {
   display: table;
   clear: both;
 }
+
+.sign-up {
+  background-color: #fff;
+  color: ;
+  border-radius: 5%;
+}
+
+.sign-up:hover {
+  background-color: purple;
+  border-radius: 5%;
+}
