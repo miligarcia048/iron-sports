@@ -7,16 +7,20 @@
   <title>Signup</title>
 </head>
 <body>
-    <h2>Signup</h2>
     <div class="mask d-flex align-items-center h-100 gradient-custom-3">
     <div class="container h-100">
       <div class="row d-flex justify-content-center align-items-center h-100">
         <div class="col-12 col-md-9 col-lg-7 col-xl-6">
           <div class="card" style="border-radius: 15px;">
             <div class="card-body p-5">
+              
+              <div class="d-flex justify-content-center">
+                <img src="https://res.cloudinary.com/duuwrswcs/image/upload/v1670424999/iron-sports/favicon_o7srxx.png" alt="IronSports Logo" width="60" height="60">
+              </div>
+
               <h2 class="text-uppercase text-center mb-5">Create an account</h2>
 
-              <form>
+              <form action="/signup" method="post">
 
                 <div class="form-outline mb-4">
                   <input type="text" id="form3Example1cg" class="form-control form-control-lg" name="username" placeholder="ironhacker" required/>
@@ -42,8 +46,20 @@
                   <button type="submit" class="btn btn-success btn-block btn-lg gradient-custom-3 text-body">Register</button>
                 </div>
 
+                  {{#if errorMessage}}
+                    <p>{{errorMessage}}</p>
+                  {{/if}}
+
                 <p class="text-center text-muted mt-5 mb-0">Have already an account? <a href="/login"
                     class="fw-bold text-body"><u>Login here</u></a></p>
+
+                <div class="d-flex justify-content-center align-items-center h-100">
+                  <button class="btn btn-light">
+                    <a href="/auth/google">
+                      <img class="me-2" src="https://res.cloudinary.com/duuwrswcs/image/upload/v1670424999/iron-sports/googleIcon_mxciti.png" alt="Google Icon" /> Register with Google
+                    </a>
+                  </button>
+                </div>
 
               </form>
 
@@ -53,31 +69,5 @@
       </div>
     </div>
   </div>
-</section>
-
-  <form action="/signup" method="post">
-
-    <label>
-      Username
-      <input type="text" name="username" placeholder="ironhacker" required>
-    </label>
-
-    <label>
-      Email
-      <input type="email" name="email" placeholder="you@ironhack.com" required>
-    </label>
-
-    <label>
-      Password
-      <input type="password" name="password" placeholder="*********" required>
-    </label>
-
-    <button class="btn btn-light" type="submit">Create an account</button>
-  </form>
-
-  {{#if errorMessage}}
-    <p>{{errorMessage}}</p>
-  {{/if}}
-
 </body>
 </html>
