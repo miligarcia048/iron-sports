@@ -47,7 +47,7 @@
           IronSports
         </a>
         <div class="collapse navbar-collapse" id="navbarNav">
-
+         
           <div>
             <ul class="navbar-nav">
               <li class="nav-item">
@@ -64,6 +64,8 @@
               </li>
             </ul>
           </div>
+          {{#unless user}}
+          
           <div class="ms-auto d-flex">
 
             <a class="nav-link sign-up" href="/signup">Sign Up</a>
@@ -71,6 +73,21 @@
             <a class="nav-link" href="/logIn">Log In</a>
           </div>
         </div>
+        {{/unless}}
+         {{#if user}}
+
+         <div class="ms-auto d-flex">
+
+            <div>
+               <img src="https://res.cloudinary.com/duuwrswcs/image/upload/v1670533658/iron-sports/profileIcon_intphx.png" alt="Profile Icon" width="24" height="24">
+               <a class="nav-link sign-up" href="#">Profile</a>
+            </div>
+
+            <a class="nav-link" href="#">Log out</a>
+          </div>
+        </div>
+         {{/if}}
+
 
       </div>
     </nav>
