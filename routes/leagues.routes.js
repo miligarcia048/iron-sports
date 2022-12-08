@@ -4,6 +4,9 @@ const router = express.Router();
 const ApiService = require('../services/leagues.service');
 const apiService = new ApiService();
 
+const ImageService = require('../services/images.service');
+const imageService = new ImageService();
+
 router.get("/leagues", async (req, res, next) => {
     try {
         const allCompetitions = await apiService.getAllCompetitions();
@@ -33,8 +36,15 @@ router.get("/leagues/:teamID/team", async (req, res, next) => {
     try {
         const { teamID } = req.params;
         const selectedTeam = await apiService.getOneTeam(teamID);
-        console.log(selectedTeam.data)
-        res.render("leagues/team-info" , { team: selectedTeam.data});
+        const firstPlayer = await selectedTeam.data.squad[0].name;
+        const getPlayerImage = await imageService.getPlayerImage(firstPlayer);
+
+        console.log(getPlayerImage.data);
+
+        res.render("leagues/team-info" , { 
+            team: selectedTeam.data,
+            player: getPlayerImage.data
+        });
     } catch (error) {
         next(error)
     }

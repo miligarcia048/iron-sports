@@ -7,6 +7,9 @@
     <title>Document</title>
 </head>
 <body>
+        {{#if player.[0].image_path}}
+        <img src="{{player.[0].image_path}}" class="card-img-top" alt="...">
+        {{/if}}
 
     {{#if team.coach}}
 
@@ -26,7 +29,6 @@
     <div class="row">
     {{#each team.squad}}
     <div class="card" style="width: 18rem;">
-        <img src="{{../team.crest}}" class="card-img-top" alt="...">
         <div class="card-body">
             <h5 class="card-title">{{name}}</h5>
             <p class="card-text">
