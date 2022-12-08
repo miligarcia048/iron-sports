@@ -27,6 +27,10 @@ class ApiService {
   getOneTeam = (teamID) => {
     return this.api.get(`/teams/${teamID}`);
   };
+
+  getOnePlayer = (randomNumber) => {
+    return this.api.get(`/persons/${randomNumber}`);
+  };
   
 }
 
