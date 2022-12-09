@@ -8,12 +8,12 @@
   <body>
 
     <div class="container mt-4">
-
+      <h1 class="mb-6">Check the latest News</h1>
       {{#each news.articles}}
         <div class="row">
           {{#if urlToImage}}
             <div class="col-12">
-              <div class="card mb-3 news_card">
+              <div class="card mb-3 news-card">
                 <div class="row g-0">
                   <div class="col-md-4">
                     <img
@@ -25,11 +25,14 @@
                   <div class="col-md-8">
                     <div class="card-body">
                       <h5 class="card-title">{{title}}</h5>
-                      <p class="card-text">{{description}}</p>
-                      <p class="card-text"><small class="text-muted">Published:
+                      <p class="card-text description">{{description}}</p>
+                      <p class="card-text"><small class="text-muted"><spam
+                            style="font-weight: 500;"
+                          >Published:</spam>
                           {{dateFormat publishedAt "dddd, MMMM Do YYYY"}}
                         </small></p>
-                      <a href="{{url}}" class="btn btn-primary">Read More</a>
+                      <a href="{{url}}" class="btn btn-primary news-button">Read
+                        More</a>
                     </div>
                   </div>
                 </div>

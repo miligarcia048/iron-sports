@@ -13,7 +13,11 @@ a {
 }
 
 h1 {
-  color: 15px;
+  font-size: 48px;
+  font-weight: 700;
+  margin-bottom: 40px;
+  padding-top: 20px !important;
+  text-align: center;
 }
 .card {
   border: #478f68 2px solid !important;
@@ -21,11 +25,7 @@ h1 {
 }
 /*navbar*/
 .navbar {
-  background: linear-gradient(
-    225.33deg,
-    #16161b 5.14%,
-    #182719 85.09%
-  ) !important;
+  background-color: #272727 !important;
   height: 80px;
 }
 .nav-link {
@@ -33,11 +33,11 @@ h1 {
   color: white !important;
 }
 .nav-link:hover {
-  color: #478f68 !important;
+  color: #018786 !important;
 }
 .buttons_nav_bar {
   border-radius: 5%;
-  border: #478f68 2px solid !important;
+  border: #018786 2px solid !important;
 }
 
 .buttons_nav_bar:hover {
@@ -55,8 +55,28 @@ h1 {
   display: table;
   clear: both;
 }
-.news_card {
+.news-card {
   background-color: transparent !important;
-  border: #478f68 2px solid !important;
+  border: #018786 2px solid !important;
   border-radius: 5px;
+}
+
+.news-card .card-title {
+  font-size: 24px !important;
+}
+.news-card .card-body {
+  padding: 2rem !important;
+}
+.news-card .description {
+  color: #dadada;
+}
+
+.news-button {
+  background-color: #018786;
+  border: none;
+}
+
+.news-button:hover {
+  color: #018786;
+  background-color: white;
 }
