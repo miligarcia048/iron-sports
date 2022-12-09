@@ -1,9 +1,11 @@
-
-html {background-color: black}
+/*general*/
+html {
+  background-color: black;
+}
 
 body {
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-	
+  font-family: Roboto;
+  color: white;
 }
 
 a {
@@ -13,27 +15,48 @@ a {
 h1 {
   color: 15px;
 }
+.card {
+  border: #478f68 2px solid !important;
+  border-radius: 5px;
+}
+/*navbar*/
+.navbar {
+  background: linear-gradient(
+    225.33deg,
+    #16161b 5.14%,
+    #182719 85.09%
+  ) !important;
+  height: 80px;
+}
+.nav-link {
+  font-size: 16px !important;
+  color: white !important;
+}
+.nav-link:hover {
+  color: #478f68 !important;
+}
+.buttons_nav_bar {
+  border-radius: 5%;
+  border: #478f68 2px solid !important;
+}
 
-/* Create two equal columns that floats next to each other */
+.buttons_nav_bar:hover {
+  border: white 2px solid !important;
+}
+
+/*news*/
 .news .column {
   float: left;
   width: 50%;
   padding: 10px;
 }
-
-/* Clear floats after the columns */
 .news .row:after {
   content: "";
   display: table;
   clear: both;
 }
-
-.sign-up {
-  background-color: #fff;
-  border-radius: 5%;
-}
-
-.sign-up:hover {
-  background-color: purple;
-  border-radius: 5%;
+.news_card {
+  background-color: transparent !important;
+  border: #478f68 2px solid !important;
+  border-radius: 5px;
 }

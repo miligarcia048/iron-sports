@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>{{appTitle}}</title>
     
-
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
     <!-- CSS only -->
     <link
       rel="shortcut icon"
@@ -21,9 +21,9 @@
     />
     <link rel="stylesheet" href="/stylesheets/style.css">
     </head>
-  <body>
+  <body style="background:linear-gradient(225.33deg, #16161B 5.14%, #182719 85.09%)!important;">
 
-    <nav class="fixed-top navbar navbar-dark navbar-expand-lg bg-dark">
+    <nav class="sticky-sm-top navbar navbar-dark navbar-expand-lg bg-dark">
       <div class="container-fluid">
         <button
           class="navbar-toggler"
@@ -68,9 +68,9 @@
           
           <div class="ms-auto d-flex">
 
-            <a class="nav-link sign-up" href="/signup">Sign Up</a>
+            <a class="nav-link buttons_nav_bar me-4" href="/signup">Sign Up</a>
 
-            <a class="nav-link" href="/logIn">Log In</a>
+            <a class="nav-link buttons_nav_bar" href="/logIn">Log In</a>
           </div>
         </div>
         {{/unless}}
@@ -83,7 +83,7 @@
                <a class="nav-link sign-up" href="#">Profile</a>
             </div>
 
-            <a class="nav-link" href="#">Log out</a>
+            <a class="nav-link buttons_nav_bar" href="#">Log out</a>
           </div>
         </div>
          {{/if}}
@@ -91,7 +91,7 @@
 
       </div>
     </nav>
-    <div style="padding-top: 55px;">
+    <div>
       {{{body}}}
     </div>
 

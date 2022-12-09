@@ -1,36 +1,42 @@
-<!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
-<div class="container" style="padding-top: 55px;">
-    <div class="row row-cols-1 row-cols-md-5 g-5">
+  </head>
+  <body>
+    <div class="container" style="padding-top: 55px;">
+      <div class="row row-cols-1 row-cols-md-5 g-5">
         {{#each competitions}}
-        <div class="col d-flex align-items-stretch">
-            <div class="card " style="width: 18rem;">
-                <img src="{{emblem}}" class="card-img-top" alt="...">
-                <div class="card-body">
+          <div class="col d-flex align-items-stretch">
+            <div class="card" style="width: 18rem;">
+              <img src="{{emblem}}" class="card-img-top" alt="..." />
+              <div class="card-body">
 
-                    <h5 class="card-title ">{{name}}</h5>
-<div class="d-flex ">
-                    {{#if area.flag}}
-<div >
-                    <img src="{{area.flag}}" class="card-img-top" alt="..." width="24px" height="24px">
-</div>
-                    {{/if}}
+                <h5 class="card-title">{{name}}</h5>
+                <div class="d-flex">
+                  {{#if area.flag}}
+                    <div>
+                      <img
+                        src="{{area.flag}}"
+                        class="card-img-top"
+                        alt="..."
+                        width="24px"
+                        height="24px"
+                      />
+                    </div>
+                  {{/if}}
 
-                    <p class="card-text ms-2">{{code}}</p>
-</div>
-                    <a href="leagues/{{id}}/teams" class="btn btn-primary">Check League</a>
-                 </div>
+                  <p class="card-text ms-2">{{code}}</p>
+                </div>
+                <a href="leagues/{{id}}/teams" class="btn btn-primary">Check
+                  League</a>
+              </div>
             </div>
-        </div>
+          </div>
         {{/each}}
+      </div>
     </div>
-</div>
-</body>
+  </body>
 </html>
