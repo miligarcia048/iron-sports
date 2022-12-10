@@ -33,7 +33,8 @@ router.post("/signup", async (req, res, next) => {
     }
     const salt = await bcrypt.genSalt(saltRounds);
     const passwordHash = await bcrypt.hash(password, salt);
-    await User.create({ username, email, passwordHash });
+    const user = await User.create({ username, email, passwordHash });
+    req.session.user = user;
     res.redirect("/");
   } catch (error) {
     if (error instanceof mongoose.Error.ValidationError) {
