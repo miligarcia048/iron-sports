@@ -6,13 +6,13 @@
     <title>Document</title>
   </head>
   <body>
-    <div class="mask d-flex align-items-center h-100 gradient-custom-3">
-      <div class="container h-100">
-        <div class="row d-flex justify-content-center align-items-center h-100">
-          <div class="col-12 col-md-9 col-lg-7 col-xl-6">
+    <div class="mask d-flex align-items-center gradient-custom-3 login">
+      <div class="container">
+        <div class="row d-flex justify-content-center align-items-center">
+          <div class="col-5">
             <div class="card" style="border-radius: 15px;">
               <div class="card-body p-5">
-                <h2 class="text-uppercase text-center mb-5">Login</h2>
+                <h2 class="text-center mb-5">Good to see yo again!</h2>
 
                 <form action="/login" method="post">
 
@@ -54,24 +54,20 @@
                   <div class="d-flex justify-content-center">
                     <button
                       type="submit"
-                      class="btn btn-success btn-block btn-lg gradient-custom-3 text-body"
+                      class="btn btn-success btn-block btn-lg gradient-custom-3 text-body login-button"
                     >Login</button>
                   </div>
 
                   {{#if errorMessage}}
                     <p>{{errorMessage}}</p>
                   {{/if}}
-
-                  <p class="text-center text-muted mt-5 mb-0">Don't have an
-                    account yet?
-                    <a href="/signup" class="fw-bold text-body"><u>Register here</u></a></p>
-
-                </form>
-
-                <div
-                  class="d-flex justify-content-center align-items-center h-100"
-                >
-                  <button class="btn btn-light">
+                  <div class="auth-text">
+                    <p class="text-center text-muted mt-5 mb-0">Don't have an
+                      account yet?
+                      <a href="/signup" class="fw-bold text-body"><u>Register
+                          here</u></a></p>
+                  </div>
+                  <button class="btn btn-light google-button mt-3 btn-lg">
                     <a href="/auth/google">
                       <img
                         class="me-2"
@@ -81,7 +77,7 @@
                       Sign in with Google
                     </a>
                   </button>
-                </div>
+                </form>
 
               </div>
             </div>

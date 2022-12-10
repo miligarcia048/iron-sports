@@ -8,19 +8,19 @@ body {
   color: white;
 }
 
-a {
-  color: #00b7ff;
-}
-
 h1 {
-  font-size: 48px;
-  font-weight: 700;
-  margin-bottom: 40px;
+  color: white;
+  font-size: 48px !important;
+  font-weight: 700 !important;
+  margin-bottom: 40px !important;
   padding-top: 20px !important;
   text-align: center;
 }
+h2 {
+  color: white;
+}
 .card {
-  border: #478f68 2px solid !important;
+  border: #018786 2px solid !important;
   border-radius: 5px;
 }
 /*navbar*/
@@ -56,9 +56,10 @@ h1 {
   clear: both;
 }
 .news-card {
-  background-color: transparent !important;
-  border: #018786 2px solid !important;
+  background-color: #272727 !important;
+  border: #dadada 3px solid !important;
   border-radius: 5px;
+  margin-bottom: 25px !important;
 }
 
 .news-card .card-title {
@@ -70,7 +71,10 @@ h1 {
 .news-card .description {
   color: #dadada;
 }
-
+.news-card img {
+  object-fit: cover;
+  height: 100%;
+}
 .news-button {
   background-color: #018786;
   border: none;
@@ -79,4 +83,175 @@ h1 {
 .news-button:hover {
   color: #018786;
   background-color: white;
+}
+
+/*leagues*/
+
+.leagues-card {
+  background-color: #272727 !important;
+  border: #dadada 1px solid !important;
+  border-radius: 2px;
+  margin-bottom: 25px !important;
+}
+.leagues-card img {
+  background-color: white;
+}
+.leagues .image-div {
+  height: 50%;
+}
+.leagues .image-div img {
+  height: 100%;
+  object-fit: contain;
+  padding: 1.2rem;
+}
+.leagues .button-check {
+  background-color: #018786;
+  color: white;
+  border: none;
+  width: 100%;
+  margin-top: 20px;
+  height: 2.5rem;
+  text-align: center;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.leagues .button-check:hover {
+  color: #018786;
+  background-color: white;
+}
+
+/*teams*/
+
+.teamList {
+  display: flex !important;
+  flex-wrap: nowrap !important;
+  overflow-x: auto !important;
+  color: white;
+  margin-top: 30px;
+}
+
+.teams-card {
+  background-color: #272727 !important;
+  border: #dadada 1px solid !important;
+  border-radius: 1px;
+  margin-bottom: 25px !important;
+  margin-right: 20px;
+}
+.teams-card img {
+  background-color: white;
+}
+.teams .image-div {
+  height: 50%;
+}
+.teams .image-div img {
+  height: 100%;
+  object-fit: contain;
+  padding: 1.2rem;
+}
+/*login*/
+
+.login .card {
+  background-color: transparent !important;
+  margin-top: 20px;
+  border: #018786 3px solid !important;
+}
+
+.login input {
+  background-color: #272727 !important;
+  border: #dadada 1px solid;
+  color: #dadada !important;
+  margin-bottom: 5px;
+  font-size: 16px !important;
+}
+
+.login input::placeholder {
+  color: white;
+  opacity: 1;
+  font-size: 16px !important;
+}
+.login input:focus {
+  color: white;
+  opacity: 1;
+}
+
+.login-button {
+  background-color: #018786;
+  border: none;
+  color: white !important;
+  width: 100%;
+}
+
+.login-button:hover {
+  color: #018786 !important;
+  background-color: white;
+}
+
+.no-account a {
+  color: white !important;
+  padding-left: 5px;
+}
+.no-account p {
+  color: #dadada !important;
+}
+
+.google-button {
+  border: #dadada solid 1px;
+  width: 100% !important;
+}
+
+.google-button a {
+  color: #272727;
+  text-decoration: none;
+}
+.login .card-body {
+  padding: 10%;
+}
+/*singUp*/
+
+.sing-up .card {
+  background-color: transparent !important;
+  margin-top: 20px;
+  border: #018786 3px solid !important;
+}
+
+.sing-up input {
+  background-color: #272727 !important;
+  border: #dadada 1px solid;
+  color: #dadada !important;
+  margin-bottom: 5px;
+  font-size: 16px !important;
+}
+.sing-up .form-outline {
+  padding-bottom: 15px;
+}
+.sing-up input::placeholder {
+  color: white;
+  opacity: 1;
+  font-size: 16px !important;
+}
+.sing-up input:focus {
+  color: white;
+  opacity: 1;
+}
+
+.auth-text a {
+  color: white !important;
+  padding-left: 5px;
+}
+.auth-texts p {
+  color: #dadada !important;
+}
+
+.google-button {
+  border: #dadada solid 1px;
+  width: 100% !important;
+}
+
+.google-button a {
+  color: #272727;
+  text-decoration: none;
+}
+.sing-up .card-body {
+  padding: 8% 10%;
 }

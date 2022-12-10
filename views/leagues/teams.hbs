@@ -1,102 +1,273 @@
-<!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.0/css/bootstrap.min.css">    
-<link rel="stylesheet" href="https://cdn.datatables.net/1.13.1/css/dataTables.bootstrap5.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.0/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.datatables.net/1.13.1/css/dataTables.bootstrap5.min.css"
+    />
 
+  </head>
+  <body>
+    <div class="container mt-4 teams">
 
+      <h1 class="mb-6"> {{competition.name}} League</h1>
 
-</head>
-<body>
-<div class="container" style="padding-top: 55px;">
-    <div>
-        <h1>League Matches</h1>
+      <div>
+        <h2> Matches</h2>
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
+          <li class="nav-item" role="presentation">
+            <button
+              class="nav-link active"
+              id="home-tab"
+              data-bs-toggle="tab"
+              data-bs-target="#home"
+              type="button"
+              role="tab"
+              aria-controls="home"
+              aria-selected="true"
+            >Upcoming</button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button
+              class="nav-link"
+              id="profile-tab"
+              data-bs-toggle="tab"
+              data-bs-target="#profile"
+              type="button"
+              role="tab"
+              aria-controls="profile"
+              aria-selected="false"
+            >Live</button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button
+              class="nav-link"
+              id="contact-tab"
+              data-bs-toggle="tab"
+              data-bs-target="#contact"
+              type="button"
+              role="tab"
+              aria-controls="contact"
+              aria-selected="false"
+            >Finished</button>
+          </li>
+        </ul>
+        <div class="tab-content" id="myTabContent">
+          <div
+            class="tab-pane fade show active"
+            id="home"
+            role="tabpanel"
+            aria-labelledby="home-tab"
+          ><table
+              id="example"
+              class="table-dark table table-hover rounded rounded-3 overflow-hidden table-striped table-bordered table-sm"
+              cellspacing="0"
+              width="100%"
+            >
+              <thead>
+                <tr>
+                  <th class="th-sm">Team 1</th>
+                  <th class="th-sm">Team 2</th>
+                  <th class="th-sm">Date</th>
+                  <th class="th-sm">Time</th>
+                  <th class="th-sm">Status</th>
+                  <th class="th-sm">Stage</th>
 
-<table id="example" class="table-dark table table-hover rounded rounded-3 overflow-hidden table-striped table-bordered table-sm" cellspacing="0" width="100%">
-  <thead>
-    <tr>
-      <th class="th-sm">Team 1</th>
-					<th class="th-sm">Team 2</th>
-					<th class="th-sm">Date</th>
-					<th class="th-sm">Status</th>
-					<th class="th-sm">Stage</th>
-					<th class="th-sm">Result</th>
-    </tr>
-  </thead>
-  <tbody>
-       {{#each matches}}
+                </tr>
+              </thead>
+              <tbody>
+                {{#each matches}}
+                  {{#ifEquals status "TIMED"}}
                     <tr>
-                        <th>{{homeTeam.name}} <img src="{{homeTeam.crest}}" width="15px" height="15px"></th>
-                        <td>{{awayTeam.name}} <img src="{{awayTeam.crest}}" width="15px" height="15px"></td>
-                        <td>{{dateFormat utcDate "dddd, MMMM Do YYYY"}} </td>
-                        <td>{{status}}</td>
-                        {{#if stage}}<td>{{stage}}</td>{{/if}}
-                        <td> 
-                            
-                            {{#ifEquals score.winner "HOME_TEAM"}}
+                      {{#if homeTeam.name}}
+                        <th>{{homeTeam.name}}
 
-                            <img src="{{homeTeam.crest}}" width="15px" height="15px"> {{homeTeam.name}}
+                          <img
+                            src="{{homeTeam.crest}}"
+                            width="15px"
+                            height="15px"
+                          /></th>
+                      {{else}}
+                        <th>-</th>
+                      {{/if}}
+                      {{#if awayTeam.name}}
+                        <td>{{awayTeam.name}}
 
-                            {{/ifEquals}}
+                          <img
+                            src="{{awayTeam.crest}}"
+                            width="15px"
+                            height="15px"
+                          /></td>
+                      {{else}}
+                        <th>-</th>
+                      {{/if}}
+                      <td>{{dateFormat utcDate " DD MMM  YYYY"}}
+                      </td>
+                      <td>{{dateFormat utcDate "h:mm a"}}
+                      </td>
+                      <td>{{status}}</td>
+                      {{#if stage}}<td>{{stage}}</td>{{/if}}
 
-                            {{#ifEquals score.winner "AWAY_TEAM"}}
-
-                            <img src="{{awayTeam.crest}}" width="15px" height="15px"> {{awayTeam.name}}
-
-                            {{/ifEquals}}
-
-                            {{#ifEquals score.winner "DRAW"}}
-
-                            Draw
-
-                            {{/ifEquals}}
-
-                        </td>
                     </tr>
-                    {{/each}}
-  </tbody>
-</table>
-    </div>
-<h2>League Teams</h2>
-    <div class="row row-cols-1 row-cols-md-5 g-5">
-        {{#each teams}}
-        <div class="col">
-            <div class="card" style="width: 18rem;">
-                <img src="{{crest}}" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">{{name}}</h5>
-                    <p class="card-text">
-                        {{#if venue}} Venue: {{venue}} <br> {{/if}}
-                        {{#if founded }}Founded: <strong>{{founded}}</strong> <br> {{/if}}
-                        {{#if website}} Website: <a href="{{website}}">{{website}}</a> {{/if}}
-                    </p>
-                    <a href="../{{id}}/team" class="btn btn-primary">Check Team</a>
-                 </div>
-            </div>
+                  {{/ifEquals}}
+                {{/each}}
+              </tbody>
+            </table>
+
+          </div>
+          <div
+            class="tab-pane fade"
+            id="profile"
+            role="tabpanel"
+            aria-labelledby="profile-tab"
+          ></div>
+          <div
+            class="tab-pane fade"
+            id="contact"
+            role="tabpanel"
+            aria-labelledby="contact-tab"
+          ><table
+              id="table2"
+              class="table-dark table table-hover rounded rounded-3 overflow-hidden table-striped table-bordered table-sm"
+              cellspacing="0"
+              width="100%"
+            >
+              <thead>
+                <tr>
+                  <th class="th-sm">Team 1</th>
+                  <th class="th-sm">Result</th>
+                  <th class="th-sm">Team 2</th>
+
+                  <th class="th-sm">Date</th>
+                  <th class="th-sm">Time</th>
+                  <th class="th-sm">Status</th>
+                  <th class="th-sm">Winner</th>
+
+                </tr>
+              </thead>
+              <tbody>
+                {{#each matches}}
+                  {{#ifEquals status "FINISHED"}}
+                    <tr>
+                      {{#if homeTeam.name}}
+                        <td>{{homeTeam.name}}
+
+                          <img
+                            src="{{homeTeam.crest}}"
+                            width="15px"
+                            height="15px"
+                          /></td>
+                      {{else}}
+                        <td>-</td>
+                      {{/if}}
+                      <td>{{score.fullTime.home}} {{score.fullTime.away}}</td>
+                      {{#if awayTeam.name}}
+                        <td>
+
+                          <img
+                            src="{{awayTeam.crest}}"
+                            width="15px"
+                            height="15px"
+                          />
+                          {{awayTeam.name}}</td>
+                      {{else}}
+                        <th>-</th>
+                      {{/if}}
+                      <td>{{dateFormat utcDate "DD MMM  YYYY"}}
+                      </td>
+                      <td>{{dateFormat utcDate "h:mm a"}}
+                      </td>
+                      <td>{{status}}</td>
+
+                      <td>
+
+                        {{#ifEquals score.winner "HOME_TEAM"}}
+
+                          <img
+                            src="{{homeTeam.crest}}"
+                            width="15px"
+                            height="15px"
+                          />
+                          {{homeTeam.name}}
+
+                        {{/ifEquals}}
+
+                        {{#ifEquals score.winner "AWAY_TEAM"}}
+
+                          <img
+                            src="{{awayTeam.crest}}"
+                            width="15px"
+                            height="15px"
+                          />
+                          {{awayTeam.name}}
+
+                        {{/ifEquals}}
+
+                        {{#ifEquals score.winner "DRAW"}}
+
+                          Draw
+
+                        {{/ifEquals}}
+
+                      </td>
+                    </tr>
+                  {{/ifEquals}}
+                {{/each}}
+              </tbody>
+            </table></div>
         </div>
+
+      </div>
+      <h2>League Teams</h2>
+      <div class="teamList">
+        {{#each teams}}
+          <div>
+            <div class="card teams-card" style="width: 15rem;">
+              <div class="image-div">
+                <img src="{{crest}}" class="card-img-top" alt="..." />
+              </div>
+              <div class="card-body">
+                <h5 class="card-title">{{name}}</h5>
+                <p class="card-text">
+                  {{#if venue}} Venue: {{venue}} <br /> {{/if}}
+                  {{#if founded}}Founded:
+                    <strong>{{founded}}</strong>
+                    <br />
+                  {{/if}}
+                  {{#if website}}
+                    Website:
+                    <a href="{{website}}">{{website}}</a>
+                  {{/if}}
+                </p>
+                <a href="../{{id}}/team" class="btn btn-primary">Check Team</a>
+              </div>
+            </div>
+          </div>
         {{/each}}
+      </div>
     </div>
-    </div>
-    
-</body>
-<script
-  type="text/javascript"
-  src="https://code.jquery.com/jquery-3.5.1.js"
-></script><script
-  type="text/javascript"
-  src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"
-></script>
-<script
-  type="text/javascript"
-  src="https://cdn.datatables.net/1.13.1/js/dataTables.bootstrap5.min.js"
-></script>
-<script>
-$(document).ready(function () {
-    $('#example').DataTable();
-});
-</script>
+
+  </body>
+  <script
+    type="text/javascript"
+    src="https://code.jquery.com/jquery-3.5.1.js"
+  ></script><script
+    type="text/javascript"
+    src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"
+  ></script>
+  <script
+    type="text/javascript"
+    src="https://cdn.datatables.net/1.13.1/js/dataTables.bootstrap5.min.js"
+  ></script>
+  <script>
+    $(document).ready(function () { $('#example').DataTable(); });
+    $(document).ready(function () { $('#table2').DataTable(); });
+  </script>
 </html>
