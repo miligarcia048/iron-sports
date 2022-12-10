@@ -127,7 +127,98 @@
             id="profile"
             role="tabpanel"
             aria-labelledby="profile-tab"
-          ></div>
+          ><table
+              id="table3"
+              class="table-dark table table-hover rounded rounded-3 overflow-hidden table-striped table-bordered table-sm"
+              cellspacing="0"
+              width="100%"
+            >
+              <thead>
+                <tr>
+                  <th class="th-sm">Team 1</th>
+                  <th class="th-sm">Home vs Away</th>
+                  <th class="th-sm">Team 2</th>
+
+                  <th class="th-sm">Date</th>
+                  <th class="th-sm">Time</th>
+
+                  <th class="th-sm">Winning</th>
+
+                </tr>
+              </thead>
+              <tbody>
+                {{#each matches}}
+                  {{#ifEquals status "IN_PLAY"}}
+                    <tr>
+                      {{#if homeTeam.name}}
+                        <td>{{homeTeam.name}}
+
+                          <img
+                            src="{{homeTeam.crest}}"
+                            width="15px"
+                            height="15px"
+                          /></td>
+                      {{else}}
+                        <td>-</td>
+                      {{/if}}
+                      <div class="grid">
+                        <td
+                          class="d-flex justify-content-center"
+                        >{{score.fullTime.home}} - {{score.fullTime.away}}</td>
+                      </div>
+                      {{#if awayTeam.name}}
+                        <td>
+
+                          <img
+                            src="{{awayTeam.crest}}"
+                            width="15px"
+                            height="15px"
+                          />
+                          {{awayTeam.name}}</td>
+                      {{else}}
+                        <th>-</th>
+                      {{/if}}
+                      <td>{{dateFormat utcDate "DD MMM  YYYY"}}
+                      </td>
+                      <td>{{dateFormat utcDate "h:mm a"}}
+                      </td>
+
+                      <td>
+
+                        {{#ifEquals score.winner "HOME_TEAM"}}
+
+                          <img
+                            src="{{homeTeam.crest}}"
+                            width="15px"
+                            height="15px"
+                          />
+                          {{homeTeam.name}}
+
+                        {{/ifEquals}}
+
+                        {{#ifEquals score.winner "AWAY_TEAM"}}
+
+                          <img
+                            src="{{awayTeam.crest}}"
+                            width="15px"
+                            height="15px"
+                          />
+                          {{awayTeam.name}}
+
+                        {{/ifEquals}}
+
+                        {{#ifEquals score.winner "DRAW"}}
+
+                          Draw
+
+                        {{/ifEquals}}
+
+                      </td>
+                    </tr>
+                  {{/ifEquals}}
+                {{/each}}
+              </tbody>
+            </table></div>
           <div
             class="tab-pane fade"
             id="contact"
@@ -142,7 +233,7 @@
               <thead>
                 <tr>
                   <th class="th-sm">Team 1</th>
-                  <th class="th-sm" >Home vs Away</th>
+                  <th class="th-sm">Home vs Away</th>
                   <th class="th-sm">Team 2</th>
 
                   <th class="th-sm">Date</th>
@@ -167,8 +258,10 @@
                       {{else}}
                         <td>-</td>
                       {{/if}}
-                      <div class="grid" >
-                      <td class="d-flex justify-content-center" >{{score.fullTime.home}} - {{score.fullTime.away}}</td>
+                      <div class="grid">
+                        <td
+                          class="d-flex justify-content-center"
+                        >{{score.fullTime.home}} - {{score.fullTime.away}}</td>
                       </div>
                       {{#if awayTeam.name}}
                         <td>
@@ -271,5 +364,6 @@
   <script>
     $(document).ready(function () { $('#example').DataTable(); });
     $(document).ready(function () { $('#table2').DataTable(); });
+    $(document).ready(function () { $('#table3').DataTable(); });
   </script>
 </html>
