@@ -142,7 +142,7 @@
               <thead>
                 <tr>
                   <th class="th-sm">Team 1</th>
-                  <th class="th-sm">Result</th>
+                  <th class="th-sm" >Home vs Away</th>
                   <th class="th-sm">Team 2</th>
 
                   <th class="th-sm">Date</th>
@@ -167,7 +167,9 @@
                       {{else}}
                         <td>-</td>
                       {{/if}}
-                      <td>{{score.fullTime.home}} {{score.fullTime.away}}</td>
+                      <div class="grid" >
+                      <td class="d-flex justify-content-center" >{{score.fullTime.home}} - {{score.fullTime.away}}</td>
+                      </div>
                       {{#if awayTeam.name}}
                         <td>
 

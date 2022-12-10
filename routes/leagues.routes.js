@@ -37,36 +37,10 @@ router.get("/leagues/:leagueID/teams", async (req, res, next) => {
 router.get("/leagues/:teamID/team", async (req, res, next) => {
   try {
     const { teamID } = req.params;
-    const listOfPlayers = [];
-
     const selectedTeam = await apiService.getOneTeam(teamID);
-
-    const allPlayers = await selectedTeam.data.squad;
-
-    allPlayers.forEach((player) => {
-      for (let key in player) {
-        if (key === "name") {
-          listOfPlayers.push(player[key]);
-        }
-      }
-    });
-    console.log(listOfPlayers);
-    let newList = [];
-    for (let i = 0; i < listOfPlayers.length; i++) {
-      let newImage = await imageService.getPlayerImage(listOfPlayers[i]);
-      console.log(newImage);
-      let newPlayer = {
-        name: listOfPlayers[i],
-        image: newImage.data.data.image_path,
-      };
-      newList.push(newPlayer);
-    }
-
-    console.log(newList);
-
+    console.log(selectedTeam.data)
     res.render("leagues/team-info", {
-      team: newList,
-      // player: [getPlayerImage.data.data[0]]
+      team: selectedTeam.data,
     });
   } catch (error) {
     next(error);
