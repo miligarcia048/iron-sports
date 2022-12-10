@@ -14,14 +14,5 @@ router.get("/news", async (req, res, next) => {
     }
 });
 
-router.get("/news/:newsName", async (req, res, next) => {
-    try {
-      const { newsName } = req.params;
-      const allNews = await apiService.getAllNews();
-      res.render("news/news", { news: allNews });
-    } catch (error) {
-      next(error);
-    }
-});
 
 module.exports = router;
