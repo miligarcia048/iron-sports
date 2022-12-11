@@ -1,47 +1,53 @@
-<!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
+  </head>
+  <body>
+    <div class="container team-info">
+      <div class="row">
+        <div class="col-3">
+          <div class="card mb-3">
+            <div class="row g-0">
 
-    {{#if team.coach}}
+              <div class="card-body">
+                <img src="{{team.crest}}" class="card-img-top" alt="..." />
+                <h1 class="card-title">{{team.name}}</h1>
+                <h2 class="card-title">{{team.founded}}</h2>
+                <p class="card-text">Venue: {{team.venue}}</p>
+                <p class="card-text">
+                  Competition:
+                  {{team.runningCompetitions.name}}</p>
+                <p class="card-text"><small
+                    class="text-muted"
+                  >{{team.website}}</small></p>
+              </div>
 
-    <div class="card" style="width: 18rem;">
-        <img src="{{team.crest}}" class="card-img-top" alt="...">
-        <div class="card-body">
-            <h5 class="card-title">Coach {{team.coach.name}}</h5>
-            <span>Nationality: {{team.coach.nationality}}</span> <br>
-            <span>Contract: {{team.coach.contract.start}} - {{team.coach.contract.until}}</span>
-         </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-9">
+          <ul class="list-group list-players">
+            <li class="list-group-item"><spam style="font-weight:600;">
+                <img
+                  src="https://www.sciencekids.co.nz/images/pictures/flags680/{{team.coach.nationality}}.jpg"
+                />{{team.coach.name}}</spam>
+              Coach
+            </li>
+            {{#each team.squad}}
+
+              <li class="list-group-item"><spam style="font-weight:600;"><img
+                    src="https://www.sciencekids.co.nz/images/pictures/flags680/{{nationality}}.jpg"
+                  />{{name}}</spam>
+                {{position}}
+              </li>
+
+            {{/each}}
+          </ul>
+        </div>
+      </div>
     </div>
-
-    {{/if}}
-
-    {{#if team.squad}}
-
-    <div class="row">
-    
-    {{#each team.squad}}
-
-    <div class="card" style="width: 18rem;">
-        <img src="{{../player.[0].image_path}}" class="card-img-top" alt="...">
-        <div class="card-body">
-            <h5 class="card-title">{{name}}</h5>
-            <p class="card-text">
-                Position: {{position}} <br>
-                Nationality: {{nationality}}
-            </p>
-            <a href="#" class="btn btn-primary">Check League</a>
-         </div>
-    </div>
-    {{/each}}
-    </div>
-    
-    {{/if}}
-    
-</body>
+  </body>
 </html>

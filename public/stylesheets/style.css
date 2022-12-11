@@ -204,7 +204,37 @@ h2 {
 .teams .page-item.active .page-link {
   background-color: #018786 !important;
 }
-
+/*team info*/
+.team-info {
+  padding-bottom: 50px;
+  margin-top: 50px;
+}
+.team-info .card {
+  background-color: #272727;
+  border: none !important;
+}
+.team-info .card h1 {
+  text-align: left !important;
+}
+.team-info .card img {
+  max-width: 250px;
+}
+.team-info .image-team {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.team-info .list-players img {
+  max-width: 30px;
+  margin-right: 10px;
+}
+.team-info .list-group-item {
+  color: white;
+  background-color: #272727;
+  border: 0.5px solid white;
+  border-bottom: 0.5px solid white;
+  padding: 25px;
+}
 /*login*/
 
 .login .card {
