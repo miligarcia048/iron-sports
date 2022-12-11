@@ -323,7 +323,7 @@
       <h2>League Teams</h2>
       <div class="teamList">
         {{#each teams}}
-          <div>
+          <div class="flex">
             <div class="card teams-card" style="width: 15rem;">
               <div class="image-div">
                 <img src="{{crest}}" class="card-img-top" alt="..." />
@@ -331,17 +331,15 @@
               <div class="card-body">
                 <h5 class="card-title">{{name}}</h5>
                 <p class="card-text">
-                  {{#if venue}} Venue: {{venue}} <br /> {{/if}}
+
                   {{#if founded}}Founded:
                     <strong>{{founded}}</strong>
                     <br />
                   {{/if}}
-                  {{#if website}}
-                    Website:
-                    <a href="{{website}}">{{website}}</a>
-                  {{/if}}
+                  {{clubColors}}
                 </p>
-                <a href="../{{id}}/team" class="btn btn-primary">Check Team</a>
+
+                <a href="../{{id}}/team" class="btn check-team">Check Team</a>
               </div>
             </div>
           </div>
