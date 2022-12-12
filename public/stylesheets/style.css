@@ -127,7 +127,18 @@ h2 {
 /*teams*/
 /*teams cards*/
 
-.teamList {
+.cardTeamsInfo .image-div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: white !important;
+}
+.cardTeamsInfo .image-div img {
+  height: 100%;
+  object-fit: contain;
+  padding: 1.2rem;
+}
+.cardTeamsInfo {
   display: flex !important;
   flex-wrap: nowrap !important;
   overflow-x: auto !important;
@@ -146,10 +157,10 @@ h2 {
 .teams-card img {
   background-color: white;
 }
-.teams .image-div {
+.teams-card .image-div {
   height: 50%;
 }
-.teams .image-div img {
+.teams-card .image-div img {
   height: 100%;
   object-fit: contain;
   padding: 1.2rem;

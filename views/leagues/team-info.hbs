@@ -11,15 +11,17 @@
         <div class="col-3">
           <div class="card mb-3">
             <div class="row g-0">
-
+              <div class="card-img-top">
+                <img src="{{team.crest}}" alt="..." />
+              </div>
               <div class="card-body">
-                <img src="{{team.crest}}" class="card-img-top" alt="..." />
-                <h1 class="card-title">{{team.name}}</h1>
+
+                <h1 class="card-title mb-2">{{team.name}}</h1>
                 <h2 class="card-title">{{team.founded}}</h2>
                 <p class="card-text">Venue: {{team.venue}}</p>
                 <p class="card-text">
                   Competition:
-                  {{team.runningCompetitions.name}}</p>
+                  {{team.runningCompetitions.0.name}}</p>
                 <p class="card-text"><small
                     class="text-muted"
                   >{{team.website}}</small></p>

@@ -18,24 +18,27 @@
     <div class="container mt-4 teams">
       <div class="row">
         <div class="col-4">
-          <div class="card mb-3">
+          <div class="card mb-3 cardTeamsInfo">
             <div class="row g-0">
-
-              <div class="card-body">
+              <div class="image-div">
                 <img
                   src="{{league.competition.emblem}}"
-                  class="card-img-top"
                   alt="..."
+                  class="card-img-top"
                 />
-                <h1 class="card-title">{{league.competition.name}}</h1>
-                <h2 class="card-title">{{league.area.name}}</h2>
+              </div>
+              <div class="card-body">
+
+                <h1 class="card-title mb-2">{{league.competition.name}}</h1>
+                <h2 class="card-title">{{league.filters.season}}</h2>
+                <h3 class="card-title">{{league.area.code}}</h3>
                 <p class="card-text">Start Date:
-                  {{league.area.startDate}}</p>
+                  {{league.season.id}}</p>
                 <p class="card-text">
                   End date:
-                  {{league.area.endDate}}</p>
+                  {{league.season.endDate}}</p>
                 <p class="card-text"><small class="text-muted">Current Matchday:
-                    {{league.area.currentMatchday}}</small></p>
+                    {{league.season.currentMatchday}}</small></p>
               </div>
 
             </div>
