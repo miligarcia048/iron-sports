@@ -32,17 +32,21 @@
         </div>
         <div class="col-9">
           <ul class="list-group list-players">
-            <li class="list-group-item"><spam style="font-weight:600;">
+            <li class="list-group-item"><span style="font-weight:600;">
                 <img
                   src="https://www.sciencekids.co.nz/images/pictures/flags680/{{team.coach.nationality}}.jpg"
-                />{{team.coach.name}}</spam>
+                />
+                {{team.coach.name}}</span>
               Coach
             </li>
             {{#each team.squad}}
 
-              <li class="list-group-item"><spam style="font-weight:600;"><img
-                    src="https://www.sciencekids.co.nz/images/pictures/flags680/{{nationality}}.jpg"
-                  />{{name}}</spam>
+              <li class="list-group-item">
+                <span style="font-weight:600;">
+                  <img
+                    src="https://www.sciencekids.co.nz/images/pictures/flags680/{{r}}.jpg"
+                  />{{name}}
+                </span>
                 {{position}}
               </li>
 
