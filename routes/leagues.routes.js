@@ -43,7 +43,7 @@ router.get("/leagues/:teamID/team", async (req, res, next) => {
   try {
     const { teamID } = req.params;
     const selectedTeam = await apiService.getOneTeam(teamID);
-    console.log(selectedTeam.data);
+    console.log(selectedTeam.data.runningCompetitions[0].name);
     res.render("leagues/team-info", {
       team: selectedTeam.data,
     });
