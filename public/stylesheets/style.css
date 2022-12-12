@@ -204,6 +204,20 @@ h2 {
 .teams .page-item.active .page-link {
   background-color: #018786 !important;
 }
+.teams .card {
+  background-color: #272727;
+  border: none !important;
+  color: white;
+}
+.teams .card h1 {
+  text-align: left !important;
+}
+.teams .card-img-top {
+  max-width: 250px !important;
+}
+.teams .table {
+  color: white;
+}
 /*team info*/
 .team-info {
   padding-bottom: 50px;

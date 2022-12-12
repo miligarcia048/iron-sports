@@ -13,9 +13,11 @@ class ApiService {
   }
 
   getAllCompetitions = () => {
-    return this.api.get('/competitions');
+    return this.api.get("/competitions");
   };
-
+  getLeagueStandings = (leagueCode) => {
+    return this.api.get(`/competitions/${leagueCode}/standings`);
+  };
   getLeagueTeams = (leagueID) => {
     return this.api.get(`/competitions/${leagueID}/teams`);
   };
@@ -31,7 +33,6 @@ class ApiService {
   getOnePlayer = (randomNumber) => {
     return this.api.get(`/persons/${randomNumber}`);
   };
-  
 }
 
 module.exports = ApiService;

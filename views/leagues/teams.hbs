@@ -16,10 +16,61 @@
   </head>
   <body>
     <div class="container mt-4 teams">
+      <div class="row">
+        <div class="col-4">
+          <div class="card mb-3">
+            <div class="row g-0">
 
-      <h1 class="mb-6"> {{competition.name}} League</h1>
+              <div class="card-body">
+                <img
+                  src="{{league.competition.emblem}}"
+                  class="card-img-top"
+                  alt="..."
+                />
+                <h1 class="card-title">{{league.competition.name}}</h1>
+                <h2 class="card-title">{{league.area.name}}</h2>
+                <p class="card-text">Start Date:
+                  {{league.area.startDate}}</p>
+                <p class="card-text">
+                  End date:
+                  {{league.area.endDate}}</p>
+                <p class="card-text"><small class="text-muted">Current Matchday:
+                    {{league.area.currentMatchday}}</small></p>
+              </div>
 
-      <div>
+            </div>
+          </div>
+        </div>
+        
+       
+          <div class="col-8">
+            <div class="card">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Last</th>
+                    <th scope="col">Handle</th>
+                  </tr>
+                </thead>
+                <tbody>
+
+                  {{#each league.standings.table}}
+                    <tr>
+                      <th scope="row">1</th>
+                      <td>{{position}}</td>
+                      <td>Otto</td>
+                      <td>@mdo</td>
+                    </tr>
+                  {{/each}}
+                </tbody>
+              </table>
+
+            </div>
+          </div>
+        
+</div>
         <h2> Matches</h2>
         <ul class="nav nav-tabs" id="myTab" role="tablist">
           <li class="nav-item" role="presentation">

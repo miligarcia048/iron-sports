@@ -24,10 +24,15 @@ router.get("/leagues/:leagueID/teams", async (req, res, next) => {
     const { leagueID } = req.params;
     const leagueTeams = await apiService.getLeagueTeams(leagueID);
     const leagueMatches = await apiService.getLeagueMatches(leagueID);
-    ~console.log(leagueMatches.data.matches);
+    const leagueCode = leagueMatches.data.competition.code;
+
+    const leagueStandings = await apiService.getLeagueMatches(leagueCode);
+
+    //console.log(leagueMatches.data.matches);
     res.render("leagues/teams", {
       teams: leagueTeams.data.teams,
       matches: leagueMatches.data.matches,
+      league: leagueStandings.data,
     });
   } catch (error) {
     next(error);
