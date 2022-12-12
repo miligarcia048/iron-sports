@@ -13,12 +13,14 @@ const apiService2 = new ApiService2();
 /* GET home page */
 router.get("/", async (req, res, next) => {
   const randomPlayer = await apiService.getOnePlayer(randomNumber);
-  //console.log(randomPlayer);
+  // console.log(randomPlayer);
   const imageRandomPlayer = await apiService2.getPlayerImage(
     randomPlayer.data.name
   );
-  res.render("home", { randomPlayer: randomPlayer.data });
-  console.log(randomPlayer);
+  console.log(imageRandomPlayer.data.data[1]);
+  res.render("home", { randomPlayer: randomPlayer.data,
+    randomPlayerImage: imageRandomPlayer.data.data[0]
+  });
 });
 
 module.exports = router;
