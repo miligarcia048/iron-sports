@@ -10,7 +10,7 @@ const imageService = new ImageService();
 router.get("/leagues", async (req, res, next) => {
   try {
     const allCompetitions = await apiService.getAllCompetitions();
-    console.log(allCompetitions.data.competitions);
+    //console.log(allCompetitions.data.competitions);
     res.render("leagues/leagues", {
       competitions: allCompetitions.data.competitions,
     });
@@ -38,7 +38,7 @@ router.get("/leagues/:teamID/team", async (req, res, next) => {
   try {
     const { teamID } = req.params;
     const selectedTeam = await apiService.getOneTeam(teamID);
-    console.log(selectedTeam.data)
+    console.log(selectedTeam.data);
     res.render("leagues/team-info", {
       team: selectedTeam.data,
     });
