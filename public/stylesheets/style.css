@@ -182,7 +182,11 @@ h2 {
   color: #018786 !important;
   background-color: white !important;
 }
-
+.teamList {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow: scroll;
+}
 /*teams table*/
 .teams .tab-pane label {
   color: white !important;
