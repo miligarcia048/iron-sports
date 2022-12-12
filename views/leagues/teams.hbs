@@ -41,36 +41,34 @@
             </div>
           </div>
         </div>
-        
-       
-          <div class="col-8">
-            <div class="card">
-              <table class="table">
-                <thead>
+
+        <div class="col-8">
+          <div class="card">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Name</th>
+                  <th scope="col">Last</th>
+                  <th scope="col">Handle</th>
+                </tr>
+              </thead>
+              <tbody>
+
+                {{#each league.standings.table}}
                   <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">Name</th>
-                    <th scope="col">Last</th>
-                    <th scope="col">Handle</th>
+                    <th scope="row">1</th>
+                    <td>{{position}}</td>
+                    <td>Otto</td>
+                    <td>@mdo</td>
                   </tr>
-                </thead>
-                <tbody>
+                {{/each}}
+              </tbody>
+            </table>
 
-                  {{#each league.standings.table}}
-                    <tr>
-                      <th scope="row">1</th>
-                      <td>{{position}}</td>
-                      <td>Otto</td>
-                      <td>@mdo</td>
-                    </tr>
-                  {{/each}}
-                </tbody>
-              </table>
-
-            </div>
           </div>
-        
-</div>
+        </div>
+
         <h2> Matches</h2>
         <ul class="nav nav-tabs" id="myTab" role="tablist">
           <li class="nav-item" role="presentation">

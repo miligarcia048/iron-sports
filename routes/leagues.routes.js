@@ -28,7 +28,7 @@ router.get("/leagues/:leagueID/teams", async (req, res, next) => {
 
     const leagueStandings = await apiService.getLeagueMatches(leagueCode);
 
-    //console.log(leagueMatches.data.matches);
+    //console.log(leagueStandings.data);
     res.render("leagues/teams", {
       teams: leagueTeams.data.teams,
       matches: leagueMatches.data.matches,
