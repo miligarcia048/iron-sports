@@ -16,7 +16,7 @@ module.exports = app => {
       cookie: {
         sameSite: process.env.NODE_ENV === 'production' ? 'none' : 'lax',
         secure: process.env.NODE_ENV === 'production',
-        maxAge: 60000 // value in ms. 60 * 1000 s === 1min
+        maxAge: 7200000  // value in ms. 60 * 1000 s === 1min - in this case, 2 hours
       },
       rolling: true, // session gets refreshed
       store: MongoStore.create({

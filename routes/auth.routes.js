@@ -5,6 +5,7 @@ const User = require("../models/User.model");
 const mongoose = require("mongoose");
 const passport = require("passport");
 const saltRounds = 10;
+const { isLoggedIn, isLoggedOut} = require("../middleware/route-guard");
 
 router.get("/signup", (req, res, next) => {
   try {
@@ -98,6 +99,15 @@ router.post("/logout", (req, res, next) => {
 
     res.redirect("/");
   });
+});
+
+router.get("/edit", isLoggedIn, (req, res, next) => {
+  try {
+    const user = req.session.user
+    res.render("auth/edit", { user })
+  } catch (error) {
+    next(error);
+  }
 });
 
 //Routes for google auth
