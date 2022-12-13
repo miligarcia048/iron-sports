@@ -60,7 +60,27 @@ h2 {
 .buttons_nav_bar:hover {
   border: white 2px solid !important;
 }
-
+/*home*/
+.banner {
+  background-position: center;
+  background-size: cover;
+  height: 90vh;
+  width: 100vw;
+  background-image: url("/images/banner.png");
+  filter: grayscale(100%);
+}
+.home .latestNewsTitle {
+  margin-top: 40px !important;
+  margin-bottom: 40px !important;
+}
+.home h3 {
+  font-size: 22px;
+  font-weight: 500;
+}
+.home .featurette .lead {
+  font-size: 16px !important;
+  color: #dadada;
+}
 /*news*/
 .news .column {
   float: left;

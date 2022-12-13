@@ -7,71 +7,10 @@
   </head>
   <body >
 <div class="home">
-    <div id="myCarousel" class="carousel slide" data-bs-ride="true">
-      <div class="carousel-indicators">
-        <button
-          type="button"
-          data-bs-target="#myCarousel"
-          data-bs-slide-to="0"
-          class="active"
-          aria-current="true"
-          aria-label="Slide 1"
-        ></button>
-        <button
-          type="button"
-          data-bs-target="#myCarousel"
-          data-bs-slide-to="1"
-          aria-label="Slide 2"
-        ></button>
-        <button
-          type="button"
-          data-bs-target="#myCarousel"
-          data-bs-slide-to="2"
-          aria-label="Slide 3"
-        ></button>
-      </div>
-
-      <div class="carousel-inner">
-        <div class="carousel-item active">
-          <img src="/images/neymar.png" class="d-block w-100" alt="..." />
-          <div class="carousel-caption d-none d-md-block">
-            <h5>First slide label</h5>
-            <p>Some representative placeholder content for the first slide.</p>
-          </div>
-        </div>
-        <div class="carousel-item">
-          <img src="/images/neymar.png" class="d-block w-100" alt="..." />
-          <div class="carousel-caption d-none d-md-block">
-            <h5>Second slide label</h5>
-            <p>Some representative placeholder content for the second slide.</p>
-          </div>
-        </div>
-        <div class="carousel-item">
-          <img src="/images/neymar.png" class="d-block w-100" alt="..." />
-          <div class="carousel-caption d-none d-md-block">
-            <h5>Third slide label</h5>
-            <p>Some representative placeholder content for the third slide.</p>
-          </div>
-        </div>
-      </div>
-      <button
-        class="carousel-control-prev"
-        type="button"
-        data-bs-target="#myCarousel"
-        data-bs-slide="prev"
-      >
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
-      </button>
-      <button
-        class="carousel-control-next"
-        type="button"
-        data-bs-target="#myCarousel"
-        data-bs-slide="next"
-      >
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
-      </button>
+    
+    <div class="banner" >
+    
+    
 
     </div>
 
@@ -87,7 +26,7 @@
             src="{{randomPlayerImage.image_path}}"
             
           ></img>
-          <h2>{{randomPlayer.name}}</h2>
+          <h3>{{randomPlayer.name}}</h3>
           <div style="display:flex; flex-direction: row;"><img
               style="max-height: 22px"
               class="me-2"
@@ -95,7 +34,7 @@
             />
             <p>{{randomPlayer.nationality}}</p></div>
          <div style="display:flex; flex-direction: row;"><img
-              style="max-height: 22px"
+              style="max-height: 30px"
               class="me-2"
               src="{{randomPlayer.currentTeam.crest}}"
             /> <p>{{randomPlayer.currentTeam.name}}</p></div>
@@ -109,14 +48,18 @@
             src="{{randomPlayerImage2.image_path}}"
             
           ></img>
-           <h2>{{randomPlayer2.name}}</h2>
+           <h3>{{randomPlayer2.name}}</h3>
           <div style="display:flex; flex-direction: row;"><img
               style="max-height: 22px"
               class="me-2"
-              src="https://www.sciencekids.co.nz/images/pictures/flags680/{{randomPlayer2.nationality}}.jpg"
+              src="{{randomPlayer2.currentTeam.area.flag}}"
             />
             <p>{{randomPlayer2.nationality}}</p></div>
-          <p>{{randomPlayer2.currentTeam.name}}</p>
+         <div style="display:flex; flex-direction: row;"><img
+              style="max-height: 30px"
+              class="me-2"
+              src="{{randomPlayer2.currentTeam.crest}}"
+            /> <p>{{randomPlayer2.currentTeam.name}}</p></div>
         </div><!-- /.col-lg-4 -->
         
        <div class="col-lg-4">
@@ -127,50 +70,49 @@
             src="{{randomPlayerImage3.image_path}}"
             
           ></img>
-           <h2>{{randomPlayer3.name}}</h2>
+           <h3>{{randomPlayer3.name}}</h3>
           <div style="display:flex; flex-direction: row;"><img
               style="max-height: 22px"
               class="me-2"
-              src="https://www.sciencekids.co.nz/images/pictures/flags680/{{randomPlayer3.nationality}}.jpg"
+              src="{{randomPlayer3.currentTeam.area.flag}}"
             />
             <p>{{randomPlayer3.nationality}}</p></div>
-          <p>{{randomPlayer3.currentTeam.name}}</p>
+         <div style="display:flex; flex-direction: row;"><img
+              style="max-height: 30px"
+              class="me-2"
+              src="{{randomPlayer3.currentTeam.crest}}"
+            /> <p>{{randomPlayer3.currentTeam.name}}</p></div>
         </div><!-- /.col-lg-4 -->
+        
       </div><!-- /.row -->
 
       <!-- START THE FEATURETTES -->
-
+		 <h2 class="latestNewsTitle">Latest news </h2>
       <hr class="featurette-divider" />
 
       <div class="row featurette">
         <div class="col-md-7">
-          <h2 class="featurette-heading">First featurette heading.
-            <span class="text-muted">It’ll blow your mind.</span></h2>
-          <p class="lead">Donec ullamcorper nulla non metus auctor fringilla.
-            Vestibulum id ligula porta felis euismod semper. Praesent commodo
-            cursus magna, vel scelerisque nisl consectetur. Fusce dapibus,
-            tellus ac cursus commodo.</p>
+          <h3 class="featurette-heading">{{news.articles.0.title}}
+          </h3>
+          <p class="lead">{{news.articles.0.description}}</p>
+	<p ><small class="text-muted"><spam
+                            style="font-weight: 500;"
+                          >Published:</spam>
+                          {{dateFormat news.articles.0.publishedAt "dddd, MMMM Do YYYY"}}
+                        </small></p>
+<a target="_blank" href="{{news.articles.0.url}}" class="btn btn-primary news-button">Read
+                        More</a>
         </div>
         <div class="col-md-5">
-          <svg
+          <img
             class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto"
-            width="500"
-            height="500"
-            xmlns="http://www.w3.org/2000/svg"
+           height="200"
+            src={{news.articles.0.urlToImage}}
             preserveAspectRatio="xMidYMid slice"
             focusable="false"
             role="img"
-            aria-label="Placeholder: 500x500"
-          ><title>Placeholder</title><rect
-              width="100%"
-              height="100%"
-              fill="#eee"
-            ></rect><text
-              x="50%"
-              y="50%"
-              fill="#aaa"
-              dy=".3em"
-            >500x500</text></svg>
+           
+          ></img>
         </div>
       </div>
 
@@ -178,33 +120,28 @@
 
       <div class="row featurette">
         <div class="col-md-7 order-md-2">
-          <h2 class="featurette-heading">Oh yeah, it’s that good.
-            <span class="text-muted">See for yourself.</span></h2>
-          <p class="lead">Donec ullamcorper nulla non metus auctor fringilla.
-            Vestibulum id ligula porta felis euismod semper. Praesent commodo
-            cursus magna, vel scelerisque nisl consectetur. Fusce dapibus,
-            tellus ac cursus commodo.</p>
+          <h3 class="featurette-heading">{{news.articles.1.title}}
+           </h3>
+          <p class="lead">{{news.articles.1.description}}</p>
+<p ><small class="text-muted"><spam
+                            style="font-weight: 500;"
+                          >Published:</spam>
+                          {{dateFormat news.articles.1.publishedAt "dddd, MMMM Do YYYY"}}
+                        </small></p>
+  <a target="_blank" href="{{news.articles.1.url}}" class="btn btn-primary news-button">Read
+                        More</a>
         </div>
         <div class="col-md-5 order-md-1">
-          <svg
+          <img
             class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto"
             width="500"
             height="500"
-            xmlns="http://www.w3.org/2000/svg"
+            src={{news.articles.1.urlToImage}}
             preserveAspectRatio="xMidYMid slice"
             focusable="false"
             role="img"
             aria-label="Placeholder: 500x500"
-          ><title>Placeholder</title><rect
-              width="100%"
-              height="100%"
-              fill="#eee"
-            ></rect><text
-              x="50%"
-              y="50%"
-              fill="#aaa"
-              dy=".3em"
-            >500x500</text></svg>
+          ></img>
         </div>
       </div>
 
@@ -212,33 +149,27 @@
 
       <div class="row featurette">
         <div class="col-md-7">
-          <h2 class="featurette-heading">And lastly, this one.
-            <span class="text-muted">Checkmate.</span></h2>
-          <p class="lead">Donec ullamcorper nulla non metus auctor fringilla.
-            Vestibulum id ligula porta felis euismod semper. Praesent commodo
-            cursus magna, vel scelerisque nisl consectetur. Fusce dapibus,
-            tellus ac cursus commodo.</p>
+          <h3 class="featurette-heading">{{news.articles.2.title}}</h3>
+          <p class="lead">{{news.articles.2.description}}</p>
+<p ><small class="text-muted"><spam
+                            style="font-weight: 500;"
+                          >Published:</spam>
+                          {{dateFormat news.articles.2.publishedAt "dddd, MMMM Do YYYY"}}
+                        </small></p>
+<a target="_blank" href="{{news.articles.2.url}}" class="btn btn-primary news-button">Read
+                        More</a>
         </div>
         <div class="col-md-5">
-          <svg
+      <img
             class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto"
             width="500"
             height="500"
-            xmlns="http://www.w3.org/2000/svg"
+            src={{news.articles.2.urlToImage}}
             preserveAspectRatio="xMidYMid slice"
             focusable="false"
             role="img"
             aria-label="Placeholder: 500x500"
-          ><title>Placeholder</title><rect
-              width="100%"
-              height="100%"
-              fill="#eee"
-            ></rect><text
-              x="50%"
-              y="50%"
-              fill="#aaa"
-              dy=".3em"
-            >500x500</text></svg>
+          ></img>
         </div>
       </div>
 
