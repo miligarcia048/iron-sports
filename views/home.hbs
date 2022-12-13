@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Home</title>
   </head>
-  <body>
-
+  <body >
+<div class="home">
     <div id="myCarousel" class="carousel slide" data-bs-ride="true">
       <div class="carousel-indicators">
         <button
@@ -75,7 +75,7 @@
 
     </div>
 
-    <div class="container marketing">
+    <div class="container playersRandom ">
         <h2>Players of the day</h2>
       <!-- Three columns of text below the carousel -->
       <div class="row">
@@ -91,10 +91,14 @@
           <div style="display:flex; flex-direction: row;"><img
               style="max-height: 22px"
               class="me-2"
-              src="https://www.sciencekids.co.nz/images/pictures/flags680/{{randomPlayer.nationality}}.jpg"
+              src="{{randomPlayer.currentTeam.area.flag}}"
             />
             <p>{{randomPlayer.nationality}}</p></div>
-          <p>{{randomPlayer.currentTeam.name}}</p>
+         <div style="display:flex; flex-direction: row;"><img
+              style="max-height: 22px"
+              class="me-2"
+              src="{{randomPlayer.currentTeam.crest}}"
+            /> <p>{{randomPlayer.currentTeam.name}}</p></div>
 
         </div><!-- /.col-lg-4 -->
         <div class="col-lg-4">
@@ -249,6 +253,6 @@
         <span class="text-muted">Footer</span>
       </div>
     </footer>
-
+ </div>
   </body>
 </html>
