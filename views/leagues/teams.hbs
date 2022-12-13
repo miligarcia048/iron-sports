@@ -17,7 +17,7 @@
   <body>
     <div class="container teams">
       <div class="row mt-4">
-        <div class="col-4">
+        <div class="col-mg-4">
           <div class="card mb-3 cardTeamsInfo">
             <div class="row g-0">
               <div class="image-div">
@@ -45,7 +45,7 @@
           </div>
         </div>
 
-        <div class="col-8 mt-4">
+        <div class="col-mg-8 mt-4">
           <div class="card">
             <table class="table standing-table">
               <thead>
@@ -64,7 +64,7 @@
 
                     <td>{{position}}</td>
                     <td class="d-flex align-items-center"><img
-                        style="max-height: 22px"
+                        style="max-height: 18px"
                         class="me-2"
                         src="{{team.crest}}"
                       />{{team.name}}</td>
@@ -80,7 +80,7 @@
         </div>
 
         <h2> Matches</h2>
-        <ul class="nav nav-tabs" id="myTab" role="tablist">
+        <ul class="nav nav-tabs ms-2 mt-2" id="myTab" role="tablist">
           <li class="nav-item" role="presentation">
             <button
               class="nav-link active"
@@ -379,7 +379,7 @@
         </div>
 
       </div>
-      <h2>League Teams</h2>
+      <h2 class="leagueTeamsTitle">League Teams</h2>
       <div class="teamList">
         {{#each teams}}
           <div class="flex">

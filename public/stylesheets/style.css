@@ -20,6 +20,8 @@ h1 {
 }
 h2 {
   color: white;
+  font-size: 30px !important;
+  font-weight: 700 !important;
 }
 .card {
   border: #018786 2px solid !important;
@@ -80,6 +82,17 @@ h2 {
 .home .featurette .lead {
   font-size: 16px !important;
   color: #dadada;
+}
+.featurette .news-button {
+  margin-bottom: 30px;
+}
+.players-home div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.players-home {
+  margin-top: 30px;
 }
 /*news*/
 .news .column {
@@ -158,7 +171,24 @@ h2 {
   background-color: white;
 }
 .standing-table {
-  line-height: 6px;
+  line-height: 5px;
+}
+.standing-table td {
+  font-size: 14px;
+}
+.leagueTeamsTitle {
+  margin-bottom: 20px;
+}
+.form-select {
+  background-color: #272727 !important;
+  border: #272727 !important;
+  color: white !important;
+  fill: white;
+}
+.form-control {
+  background-color: #272727 !important;
+  border: #272727 !important;
+  color: white !important;
 }
 /*teams*/
 /*teams cards*/
@@ -455,4 +485,11 @@ h2 {
 #myBtn:hover {
   background-color: #018786;
   fill: white;
+}
+
+@media only screen and (max-width: 600px) {
+  .navbar-collapse {
+    background-color: #272727;
+    z-index: 9999;
+  }
 }
