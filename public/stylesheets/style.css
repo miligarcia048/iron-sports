@@ -20,6 +20,8 @@ h1 {
 }
 h2 {
   color: white;
+  font-size: 30px !important;
+  font-weight: 700 !important;
 }
 .card {
   border: #018786 2px solid !important;
@@ -60,7 +62,38 @@ h2 {
 .buttons_nav_bar:hover {
   border: white 2px solid !important;
 }
-
+/*home*/
+.banner {
+  background-position: center;
+  background-size: cover;
+  height: 90vh;
+  width: 100vw;
+  background-image: url("/images/banner.png");
+  filter: grayscale(100%);
+}
+.home .latestNewsTitle {
+  margin-top: 40px !important;
+  margin-bottom: 40px !important;
+}
+.home h3 {
+  font-size: 22px;
+  font-weight: 500;
+}
+.home .featurette .lead {
+  font-size: 16px !important;
+  color: #dadada;
+}
+.featurette .news-button {
+  margin-bottom: 30px;
+}
+.players-home div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.players-home {
+  margin-top: 30px;
+}
 /*news*/
 .news .column {
   float: left;
@@ -137,7 +170,26 @@ h2 {
   color: #018786;
   background-color: white;
 }
-
+.standing-table {
+  line-height: 5px;
+}
+.standing-table td {
+  font-size: 14px;
+}
+.leagueTeamsTitle {
+  margin-bottom: 20px;
+}
+.form-select {
+  background-color: #272727 !important;
+  border: #272727 !important;
+  color: white !important;
+  fill: white;
+}
+.form-control {
+  background-color: #272727 !important;
+  border: #272727 !important;
+  color: white !important;
+}
 /*teams*/
 /*teams cards*/
 
@@ -411,4 +463,33 @@ h2 {
 
 .userPop {
   display: none;
+}
+
+/*back to top button*/
+#myBtn {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  right: 30px;
+  z-index: 99;
+  border: none;
+  outline: none;
+  background-color: white;
+  color: #018786;
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 50px;
+  font-size: 16px;
+}
+
+#myBtn:hover {
+  background-color: #018786;
+  fill: white;
+}
+
+@media only screen and (max-width: 600px) {
+  .navbar-collapse {
+    background-color: #272727;
+    z-index: 9999;
+  }
 }
