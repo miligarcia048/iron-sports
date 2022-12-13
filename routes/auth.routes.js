@@ -5,7 +5,7 @@ const User = require("../models/User.model");
 const mongoose = require("mongoose");
 const passport = require("passport");
 const saltRounds = 10;
-const { isLoggedIn, isLoggedOut} = require("../middleware/route-guard");
+const { isLoggedIn, isLoggedOut } = require("../middleware/route-guard");
 
 router.get("/signup", (req, res, next) => {
   try {
@@ -103,8 +103,7 @@ router.post("/logout", (req, res, next) => {
 
 router.get("/edit", isLoggedIn, (req, res, next) => {
   try {
-    const user = req.session.user
-    res.render("auth/edit", { user })
+    res.render("auth/edit");
   } catch (error) {
     next(error);
   }
@@ -112,73 +111,42 @@ router.get("/edit", isLoggedIn, (req, res, next) => {
 
 router.post("/edit", isLoggedIn, async (req, res, next) => {
   try {
-    const user = req.session.user;
-    const userID = user._id;
-
-    if ("username" in req.body) {
-      try {
-        const { username } = req.body;
-        await User.findByIdAndUpdate(userID, {
-          username
-        });
-        req.logout((error) => {
-          if (error) {
-            next(error);
-          }})
-
-      } catch (error) {
-        console.log(error);
-      } 
+    const { username, email, oldPassword, newPassword, confirmedNewPassword } =
+      req.body;
+    const userID = req.user._id;
+    let passwordHash = "";
+    const updateUser = {};
+    if (username) {
+      updateUser.username = username;
     }
+    if (email) {
+      updateUser.email = email;
+    }
+    console.log("updateUSer", updateUser);
 
-    if ("email" in req.body) {
-      try {
-        const { email, confirmedEmail } = req.body;
+    if (oldPassword && newPassword && confirmedNewPassword) {
+      if (newPassword === confirmedNewPassword) {
+        try {
+          // const passwordHash = newPassword;
 
-        if (!(email === confirmedEmail)) {
-          console.log("The emails don't match!")
-        } else {
-          await User.findByIdAndUpdate(userID, {
-            email
-          });
-          req.logout((error) => {
-            if (error) {
-              next(error);
-            }})
+          if (bcrypt.compareSync(oldPassword, req.user.passwordHash)) {
+            const salt = await bcrypt.genSalt(saltRounds);
+            passwordHash = await bcrypt.hash(newPassword, salt);
+          }
+        } catch (error) {
+          console.log(error);
         }
-      } catch (error) {
-        console.log(error);
+      } else {
+        console.log("passwords do not match");
+        // passwords do not match
       }
     }
-
-    if ("password" in req.body) {
-      try {
-        const { password, newPassword, confirmedNewPassword } = req.body;
-        const passwordHash = newPassword;
-
-        const salt = await bcrypt.genSalt(saltRounds);
-        const confirmCurrentPassword = await bcrypt.hash(password, salt);
-
-
-        if (!(newPassword === confirmedNewPassword)) {
-          console.log("The passwords don't match!")
-        } else if (!(confirmCurrentPassword === user.passwordHash)){
-          console.log("The current passwords don't match!")
-        } else {
-          await User.findByIdAndUpdate(userID, {
-            passwordHash
-          });
-          req.logout((error) => {
-            if (error) {
-              next(error);
-            }})
-        }
-      } catch (error) {
-        console.log(error);
-      }
+    if (passwordHash) {
+      updateUser.passwordHash = passwordHash;
     }
-
-    res.render("auth/edit", { user })
+    const user = await User.findByIdAndUpdate(userID, updateUser);
+    req.user = user;
+    res.redirect("/edit");
   } catch (error) {
     next(error);
   }
