@@ -386,3 +386,29 @@ h2 {
 .sing-up .card-body {
   padding: 8% 10%;
 }
+
+/* Edit page */
+
+.popup {
+  position: absolute;
+  left: 50%;
+  right: 50%;
+  top: 50%;
+  bottom: 50%;
+  height: 250px;
+  width: 500px;
+  background: #fff;
+  color: black;
+}
+
+.passPop {
+  display: none;
+}
+
+.emailPop {
+  display: none;
+}
+
+.userPop {
+  display: none;
+}

@@ -7,32 +7,7 @@
     <title>Profile</title>
 </head>
 <body>
-    <h2>Edit the book: {{title}}</h2>
 
-
-    <form action="/books/{{_id}}/edit" method="post">
-        <label>
-            Title
-            <input type="text" name="title" value="{{title}}">
-        </label>
-
-        <label>
-            Author
-            <input type="text" name="author" value="{{author}}">
-        </label>
-
-        <label>
-            Description
-            <textarea name="description" cols="30" rows="4">{{description}}</textarea>
-        </label>
-
-        <label>
-            Rating
-            <input type="number" name="rating" min="1" max="10" value="{{rating}}">
-        </label>
-
-        <button type="submit">Edit</button>
-    </form>
 
     <section style="background-color: #eee;">
     <div class="container py-5">
@@ -99,6 +74,7 @@
               </div>
               <div class="col-sm-9">
                 <p class="text-muted mb-0">{{user.username}}</p>
+                <button id="user-btn">Edit</button>
               </div>
             </div>
             <hr>
@@ -108,6 +84,7 @@
               </div>
               <div class="col-sm-9">
                 <p class="text-muted mb-0">{{user.email}}</p>
+                <button id="email-btn">Edit</button>
               </div>
             </div>
             <hr>
@@ -117,6 +94,7 @@
               </div>
               <div class="col-sm-9">
                 <p class="text-muted mb-0">Bay Area, San Francisco, CA</p>
+                <button id="pass-btn">Edit</button>
               </div>
             </div>
           </div>
@@ -196,6 +174,56 @@
     </div>
   </div>
 </section>
+ 
+    <div class="popup userPop">
+        <form action="" method="post">
+            <label>
+                Username
+                <input type="text" name="title" value="">
+            </label>
+            <button type="submit">Edit</button>
+        </form>
+    </div>
+
+    <div class="popup emailPop">
+        <form action="" method="post">
+            <label>
+                Email
+                <input type="text" name="title" value="">
+            </label>
+            <label>
+                Confirm email
+                <input type="text" name="title" value="">
+            </label>
+            <button type="submit">Edit</button>
+        </form>
+    </div>
+
+    <div class="popup passPop">
+        <form action="" method="post">
+            <label>
+                Current Password
+                <input type="text" name="title" value="">
+            </label>
+            <label>
+                New Password
+                <input type="text" name="title" value="">
+            </label>
+            <button type="submit">Edit</button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById("pass-btn").addEventListener("click", function(){
+            document.querySelector(".passPop").style.display = "flex";
+        });
+        document.getElementById("email-btn").addEventListener("click", function(){
+            document.querySelector(".emailPop").style.display = "flex";
+        });
+        document.getElementById("user-btn").addEventListener("click", function(){
+            document.querySelector(".userPop").style.display = "flex";
+        });
+    </script>
 
 </body>
 </html>
