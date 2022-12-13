@@ -110,6 +110,80 @@ router.get("/edit", isLoggedIn, (req, res, next) => {
   }
 });
 
+router.post("/edit", isLoggedIn, async (req, res, next) => {
+  try {
+    const user = req.session.user;
+    const userID = user._id;
+
+    if ("username" in req.body) {
+      try {
+        const { username } = req.body;
+        await User.findByIdAndUpdate(userID, {
+          username
+        });
+        req.logout((error) => {
+          if (error) {
+            next(error);
+          }})
+
+      } catch (error) {
+        console.log(error);
+      } 
+    }
+
+    if ("email" in req.body) {
+      try {
+        const { email, confirmedEmail } = req.body;
+
+        if (!(email === confirmedEmail)) {
+          console.log("The emails don't match!")
+        } else {
+          await User.findByIdAndUpdate(userID, {
+            email
+          });
+          req.logout((error) => {
+            if (error) {
+              next(error);
+            }})
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    }
+
+    if ("password" in req.body) {
+      try {
+        const { password, newPassword, confirmedNewPassword } = req.body;
+        const passwordHash = newPassword;
+
+        const salt = await bcrypt.genSalt(saltRounds);
+        const confirmCurrentPassword = await bcrypt.hash(password, salt);
+
+
+        if (!(newPassword === confirmedNewPassword)) {
+          console.log("The passwords don't match!")
+        } else if (!(confirmCurrentPassword === user.passwordHash)){
+          console.log("The current passwords don't match!")
+        } else {
+          await User.findByIdAndUpdate(userID, {
+            passwordHash
+          });
+          req.logout((error) => {
+            if (error) {
+              next(error);
+            }})
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    }
+
+    res.render("auth/edit", { user })
+  } catch (error) {
+    next(error);
+  }
+});
+
 //Routes for google auth
 router.get(
   "/auth/google",
