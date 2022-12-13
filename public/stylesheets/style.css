@@ -157,7 +157,9 @@ h2 {
   color: #018786;
   background-color: white;
 }
-
+.standing-table {
+  line-height: 6px;
+}
 /*teams*/
 /*teams cards*/
 
