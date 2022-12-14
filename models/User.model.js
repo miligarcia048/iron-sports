@@ -27,7 +27,7 @@ const userSchema = new Schema(
     picture_url: {
       type: String,
       default:
-        'https://images.unsplash.com/photo-1589998059171-988d887df646?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8b3BlbiUyMGJvb2t8ZW58MHx8MHx8&w=1000&q=80'
+        'https://res.cloudinary.com/duuwrswcs/image/upload/v1671028553/iron-sports/userIcon_el2csm.png'
     },
   },
   {
