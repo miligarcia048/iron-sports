@@ -6,6 +6,9 @@ const mongoose = require("mongoose");
 const passport = require("passport");
 const saltRounds = 10;
 const { isLoggedIn, isLoggedOut } = require("../middleware/route-guard");
+const { update } = require("../models/User.model");
+const fileUploader = require('../config/cloudinary.config');
+
 
 router.get("/signup", (req, res, next) => {
   try {
@@ -109,19 +112,41 @@ router.get("/edit", isLoggedIn, (req, res, next) => {
   }
 });
 
-router.post("/edit", isLoggedIn, async (req, res, next) => {
+// router.post(
+//   '/edit',
+//   fileUploader.single('picture_url'),
+//   async (req, res, next) => {
+//     try {
+//       if (req.file) {
+//         User.picture_url = req.file.path;
+//       }
+//       res.redirect('/edit');
+//     } catch (error) {
+//       next(error);
+//     }
+//   }
+// );
+
+router.post("/edit", fileUploader.single('picture_url'), isLoggedIn, async (req, res, next) => {
   try {
+    console.log(req.body)
     const { username, email, oldPassword, newPassword, confirmedNewPassword } =
       req.body;
     const userID = req.user._id;
     let passwordHash = "";
     const updateUser = {};
+
     if (username) {
       updateUser.username = username;
     }
     if (email) {
       updateUser.email = email;
     }
+  
+    if(req.file) {
+      updateUser.picture_url = req.file.path;
+    }
+
     console.log("updateUSer", updateUser);
 
     if (oldPassword && newPassword && confirmedNewPassword) {

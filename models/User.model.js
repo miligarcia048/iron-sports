@@ -23,7 +23,12 @@ const userSchema = new Schema(
       type: String,
      // required: [true, 'Password is required.']
     },
-		googleId: String
+		googleId: String,
+    picture_url: {
+      type: String,
+      default:
+        'https://images.unsplash.com/photo-1589998059171-988d887df646?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8b3BlbiUyMGJvb2t8ZW58MHx8MHx8&w=1000&q=80'
+    },
   },
   {
     // this second object adds extra properties: `createdAt` and `updatedAt`
