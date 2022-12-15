@@ -62,6 +62,26 @@ h2 {
 .buttons_nav_bar:hover {
   border: white 2px solid !important;
 }
+.logout {
+  border-radius: 5%;
+  border: #018786 2px solid !important;
+  background-color: transparent !important;
+  color: white !important;
+}
+.profile-button {
+  display: flex;
+  border-radius: 5%;
+  border: #018786 2px solid !important;
+  max-height: 45px;
+  color: white;
+}
+.profile-button a {
+  padding-left: 6px !important;
+}
+.profile-button:hover {
+  border: white 2px solid !important;
+}
+
 /*home*/
 .banner {
   background-position: center;
