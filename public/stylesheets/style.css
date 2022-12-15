@@ -193,6 +193,7 @@ h2 {
 .standings-groups {
   overflow: scroll;
   max-height: 566px;
+  min-height: 566px;
   padding: 10px 30px;
 }
 .standings-normal {
