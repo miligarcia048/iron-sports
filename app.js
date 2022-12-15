@@ -18,7 +18,15 @@ hbs.registerHelper("ifEquals", function (arg1, arg2, options) {
 hbs.registerHelper("unlessEquals", function (arg1, arg2, options) {
   return arg1 !== arg2 ? options.fn(this) : options.inverse(this);
 });
+
 hbs.registerHelper("dateFormat", require("handlebars-dateformat"));
+
+hbs.registerHelper("length", function (v1, v2, options) {
+  if (v1.length > v2) {
+    return options.fn(this);
+  }
+  return options.inverse(this);
+});
 
 const app = express();
 

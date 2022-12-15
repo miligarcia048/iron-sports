@@ -20,7 +20,7 @@ h1 {
 }
 h2 {
   color: white;
-  font-size: 30px !important;
+  font-size: 36px !important;
   font-weight: 700 !important;
 }
 .card {
@@ -190,8 +190,16 @@ h2 {
   color: #018786;
   background-color: white;
 }
-.standing-table {
-  line-height: 5px;
+.standings-groups {
+  overflow: scroll;
+  max-height: 566px;
+  min-height: 566px;
+  padding: 10px 30px;
+}
+.standings-normal {
+  overflow: scroll;
+  max-height: 566px;
+  padding: 10px 30px;
 }
 .standing-table td {
   font-size: 14px;
@@ -274,6 +282,7 @@ h2 {
   overflow: scroll;
 }
 /*teams table*/
+
 .teams .tab-pane label {
   color: white !important;
 }
