@@ -7,11 +7,15 @@
   </head>
   <body>
     <div class="container mt-4 leagues">
-      <h1 class="mb-6">Check the top leagues</h1>
+      <h1 class="mb-6" data-aos="zoom-in">Check the top leagues</h1>
       <div class="row row-cols-1 row-cols-md-5 g-5">
         {{#each competitions}}
           <div class="col d-flex align-items-stretch justify-content-center">
-            <div class="card leagues-card" style="width: 18rem;">
+            <div
+              class="card leagues-card"
+              style="width: 18rem;"
+              data-aos="fade-up"
+            >
               <div class="image-div">
                 <img src="{{emblem}}" class="card-img-top" alt="..." />
               </div>

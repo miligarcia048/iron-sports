@@ -15,7 +15,7 @@
     </div>
 
     <div class="container playersRandom ">
-        <h2 data-aos="zoom-in">Players of the day</h2>
+        <h2 data-aos="zoom-in-right">Players of the day</h2>
       <!-- Three columns of text below the carousel -->
       <div class="row players-home">
         <div class="col-lg-4" data-aos="fade-up">
@@ -93,11 +93,11 @@
       </div><!-- /.row -->
 
       <!-- START THE FEATURETTES -->
-		 <h2 class="latestNewsTitle" data-aos="zoom-in">Latest news </h2>
+		 <h2 class="latestNewsTitle" data-aos="zoom-in-right">Latest news </h2>
       <hr class="featurette-divider" />
 
-      <div class="row featurette">
-        <div class="col-md-7">
+      <div class="row featurette" data-aos="fade-left">
+        <div class="col-md-7" >
           <h3 class="featurette-heading">{{news.articles.0.title}}
           </h3>
           <p class="lead">{{news.articles.0.description}}</p>
@@ -124,7 +124,7 @@
 
       <hr class="featurette-divider" />
 
-      <div class="row featurette">
+      <div class="row featurette" data-aos="fade-right">
         <div class="col-md-7 order-md-2">
           <h3 class="featurette-heading">{{news.articles.1.title}}
            </h3>
@@ -153,7 +153,7 @@
 
       <hr class="featurette-divider" />
 
-      <div class="row featurette">
+      <div class="row featurette" data-aos="fade-left">
         <div class="col-md-7">
           <h3 class="featurette-heading">{{news.articles.2.title}}</h3>
           <p class="lead">{{news.articles.2.description}}</p>
