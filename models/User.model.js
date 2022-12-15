@@ -29,6 +29,7 @@ const userSchema = new Schema(
       default:
         'https://res.cloudinary.com/duuwrswcs/image/upload/v1671028553/iron-sports/userIcon_el2csm.png'
     },
+    favorites: [{ type: Schema.Types.ObjectId, ref: 'Favorites' }]
   },
   {
     // this second object adds extra properties: `createdAt` and `updatedAt`

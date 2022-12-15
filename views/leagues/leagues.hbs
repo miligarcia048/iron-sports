@@ -4,6 +4,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <script>
+      function myfunction(id) {
+        const leagueID = id;
+        const newFavorite = await Favorites.create({
+          title,
+          author,
+          description,
+          rating
+        });
+      }
+    </script>
   </head>
   <body>
     <div class="container mt-4 leagues">
@@ -35,6 +46,14 @@
                 </div>
                 <a href="leagues/{{id}}/teams" class="btn button-check">Check
                   League</a>
+
+                 <form action="/favorites" method="post">
+                  <input type="text" name="flag" value="{{area.flag}}" style="display: none;">
+                  <input type="text" name="name" value="{{name}}" style="display: none;">
+
+                  <button type="submit">Add to Favorites</button>
+                  </form>
+
               </div>
             </div>
           </div>

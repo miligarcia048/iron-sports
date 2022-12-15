@@ -37,6 +37,7 @@ const leagueRoutes = require("./routes/leagues.routes");
 const newsRoutes = require("./routes/news.routes");
 const teamRoutes = require("./routes/team.routes");
 const authRoutes = require('./routes/auth.routes');
+const favoritesRoutes = require('./routes/favorites.routes');
 
 
 
@@ -45,6 +46,7 @@ app.use("/", leagueRoutes);
 app.use("/", newsRoutes);
 app.use("/", teamRoutes);
 app.use('/', authRoutes);
+app.use('/', favoritesRoutes);
 
 
 // ❗ To handle errors. Routes that don't exist or errors that you handle in specific routes
