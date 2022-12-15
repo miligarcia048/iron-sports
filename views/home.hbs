@@ -6,7 +6,7 @@
     <title>Home</title>
   </head>
   <body >
-<div class="home">
+<div class="home" >
     
     <div class="banner" >
     
@@ -15,10 +15,10 @@
     </div>
 
     <div class="container playersRandom ">
-        <h2>Players of the day</h2>
+        <h2 data-aos="zoom-in">Players of the day</h2>
       <!-- Three columns of text below the carousel -->
       <div class="row players-home">
-        <div class="col-lg-4">
+        <div class="col-lg-4" data-aos="fade-up">
           <img
             class="bd-placeholder-img rounded-circle"
             width="140"
@@ -31,7 +31,7 @@
     justify-content: center;"><img
               style="max-height: 22px"
               class="me-2"
-              src="{{randomPlayer.currentTeam.area.flag}}"
+               src="https://www.sciencekids.co.nz/images/pictures/flags680/{{randomPlayer.nationality}}.jpg"
             />
             <p>{{randomPlayer.nationality}}</p></div>
          <div style="display:flex; flex-direction: row; align-items: stretch;
@@ -42,7 +42,7 @@
             /> <p>{{randomPlayer.currentTeam.name}}</p></div>
 
         </div><!-- /.col-lg-4 -->
-        <div class="col-lg-4">
+        <div class="col-lg-4 " data-aos="fade-up" data-aos-delay="0.5">
            <img
             class="bd-placeholder-img rounded-circle"
             width="140"
@@ -55,7 +55,7 @@
     justify-content: center;"><img
               style="max-height: 22px"
               class="me-2"
-              src="{{randomPlayer2.currentTeam.area.flag}}"
+              src="https://www.sciencekids.co.nz/images/pictures/flags680/{{randomPlayer2.nationality}}.jpg"
             />
             <p>{{randomPlayer2.nationality}}</p></div>
          <div style="display:flex; flex-direction: row; align-items: stretch;
@@ -66,7 +66,7 @@
             /> <p>{{randomPlayer2.currentTeam.name}}</p></div>
         </div><!-- /.col-lg-4 -->
         
-       <div class="col-lg-4">
+       <div class="col-lg-4" data-aos="fade-up" data-aos-delay="1">
            <img
             class="bd-placeholder-img rounded-circle"
             width="140"
@@ -79,7 +79,7 @@
     justify-content: center;"><img
               style="max-height: 22px"
               class="me-2"
-              src="{{randomPlayer3.currentTeam.area.flag}}"
+               src="https://www.sciencekids.co.nz/images/pictures/flags680/{{randomPlayer3.nationality}}.jpg"
             />
             <p>{{randomPlayer3.nationality}}</p></div>
          <div style="display:flex; flex-direction: row; align-items: stretch;
@@ -93,7 +93,7 @@
       </div><!-- /.row -->
 
       <!-- START THE FEATURETTES -->
-		 <h2 class="latestNewsTitle">Latest news </h2>
+		 <h2 class="latestNewsTitle" data-aos="zoom-in">Latest news </h2>
       <hr class="featurette-divider" />
 
       <div class="row featurette">
