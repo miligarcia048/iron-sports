@@ -50,8 +50,12 @@
                  <form action="/favorites" method="post">
                   <input type="text" name="flag" value="{{area.flag}}" style="display: none;">
                   <input type="text" name="name" value="{{name}}" style="display: none;">
-
-                  <button type="submit">Add to Favorites</button>
+                  
+                  {{#each @root.user.favorites}}
+                    {{#unlessEquals ../name name}}
+                      <button type="submit">Add to Favorites</button>
+                   {{/unlessEquals}}
+                 {{/each }}
                   </form>
 
               </div>

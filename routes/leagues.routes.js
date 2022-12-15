@@ -5,14 +5,17 @@ const ApiService = require("../services/leagues.service");
 const apiService = new ApiService();
 
 const ImageService = require("../services/images.service");
+const User = require("../models/User.model");
 const imageService = new ImageService();
 
 router.get("/leagues", async (req, res, next) => {
   try {
+    const user = await User.findById(req.user._id).populate("favorites");
     const allCompetitions = await apiService.getAllCompetitions();
     //console.log(allCompetitions.data.competitions);
     res.render("leagues/leagues", {
       competitions: allCompetitions.data.competitions,
+      user,
     });
   } catch (error) {
     next(error);
