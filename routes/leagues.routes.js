@@ -29,6 +29,12 @@ router.get("/leagues", async (req, res, next) => {
 router.get("/leagues/:leagueID/teams", async (req, res, next) => {
   try {
     const { leagueID } = req.params;
+
+    let user;
+    if ( req.user) {
+      user = await User.findById(req.user._id).populate("teams");
+    }
+
     const leagueTeams = await apiService.getLeagueTeams(leagueID);
     const leagueMatches = await apiService.getLeagueMatches(leagueID);
     const leagueCode = leagueMatches.data.competition.code;
@@ -40,6 +46,7 @@ router.get("/leagues/:leagueID/teams", async (req, res, next) => {
       teams: leagueTeams.data.teams,
       matches: leagueMatches.data.matches,
       league: leagueStandings.data,
+      user
     });
   } catch (error) {
     next(error);
@@ -48,11 +55,17 @@ router.get("/leagues/:leagueID/teams", async (req, res, next) => {
 
 router.get("/leagues/:teamID/team", async (req, res, next) => {
   try {
+    let user;
+    if ( req.user) {
+      user = await User.findById(req.user._id).populate("players");
+    }
+
     const { teamID } = req.params;
     const selectedTeam = await apiService.getOneTeam(teamID);
     console.log(selectedTeam.data.runningCompetitions[0].name);
     res.render("leagues/team-info", {
       team: selectedTeam.data,
+      user
     });
   } catch (error) {
     next(error);
