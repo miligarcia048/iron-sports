@@ -20,8 +20,43 @@
                 <img src="{{emblem}}" class="card-img-top" alt="..." />
               </div>
               <div class="card-body">
-
-                <h5 class="card-title">{{name}}</h5>
+                <div class="d-flex">
+                  <h5 class="card-title">{{name}}</h5>
+                  <form action="/favorites" method="post">
+                    <input
+                      type="text"
+                      name="flag"
+                      value="{{area.flag}}"
+                      style="display: none;"
+                    />
+                    <input
+                      type="text"
+                      name="name"
+                      value="{{name}}"
+                      style="display: none;"
+                    />
+                    {{#if @root.user}}
+                      {{#isValueInKey @root.user.favorites name "name"}}
+                        <span class="fa fa-star checked"></span>
+                      {{else}}
+                        <button type="submit" class="star-button"><span
+                            class="fa fa-star"
+                          ></span></button>
+                      {{/isValueInKey}}
+                    {{/if}}
+                    {{#unless @root.user}}
+                      <a href="/login">
+                      <span
+                            class="fa fa-star"
+                          ></span>
+                      {{!-- <span
+                          class="fa fa-star checked"
+                        ></span> --}}
+                  
+                        </a>
+                    {{/unless}}
+                  </form>
+                </div>
                 <div class="d-flex">
                   {{#if area.flag}}
                     <div>
@@ -40,38 +75,6 @@
                 <a href="leagues/{{id}}/teams" class="btn button-check">Check
                   League</a>
 
-                <form action="/favorites" method="post">
-                  <input
-                    type="text"
-                    name="flag"
-                    value="{{area.flag}}"
-                    style="display: none;"
-                  />
-                  <input
-                    type="text"
-                    name="name"
-                    value="{{name}}"
-                    style="display: none;"
-                  />
-
-                  {{#if @root.user}}
-                    {{#isValueInKey @root.user.favorites name "name"}}
-                      <span class="fa fa-star checked"></span>
-
-                    {{else}}
-                      <button type="submit" class="star-button"><span
-                          class="fa fa-star"
-                        ></span></button>
-
-                    {{/isValueInKey}}
-                  {{/if}}
-
-                  {{#unless @root.user}}
-                    <a href="/login"><span
-                        class="fa fa-star checked"
-                      ></span></a>
-                  {{/unless}}
-                </form>
 
               </div>
             </div>
