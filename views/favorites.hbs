@@ -11,103 +11,117 @@
       <h2>{{flag}}</h2>
     {{/each}}--}}
     <div class="container mt-4">
-      <h1 class="mb-6" data-aos="zoom-in">Your favorites</h1>
+      <h1 class="mb-6" data-aos="zoom-in">Favorites</h1>
 
-      <div class="col-md-8 col-sm-12">
-        <ul class="list-group list-favourites">
+      {{#if favourites}}
+        <h2>Leagues</h2>
+        <div class="col-md-8 col-sm-12">
 
-          {{#each favourites}}
+          <ul class="list-group list-favourites">
 
-            <li class="list-group-item">
-              <span style="font-weight:600;">
-                <img class="me-2" height="20" width="20" src={{flag}} />{{name}}
-              </span>
+            {{#each favourites}}
 
-            </li>
+              <li class="list-group-item">
+                <span style="font-weight:600;">
+                  <img class="me-2" height="20" width="20" src={{flag}} /><a
+                    href="leagues/{{id}}/teams"
+                  >{{name}}</a>
+                </span>
 
-            <form action="/favorites/delete" method="post">
-                  <input
-                    type="text"
-                    name="name"
-                    value="{{name}}"
-                    style="display: none;"
-                  />
-                      <button type="submit" class="star-button">
-                        <span class="fa fa-star checked">
-                        </span>
-                        </button>
-                </form>
+              </li>
 
-          {{/each}}
-        </ul>
-      </div>
+              <form action="/favorites/delete" method="post">
+                <input
+                  type="text"
+                  name="name"
+                  value="{{name}}"
+                  style="display: none;"
+                />
+                <button type="submit" class="star-button">
+                  <span class="fa fa-star checked">
+                  </span>
+                </button>
+              </form>
+
+            {{/each}}
+          </ul>
+        </div>
+      {{/if}}
     </div>
 
-    <div class="container mt-4">
-      <h1 class="mb-6" data-aos="zoom-in">Your favorite teams</h1>
+    {{#if teams}}
+      <div class="container mt-4">
+        <h2>Teams</h2>
 
-      <div class="col-md-8 col-sm-12">
-        <ul class="list-group list-favourites">
+        <div class="col-md-8 col-sm-12">
+          <ul class="list-group list-favourites">
 
-          {{#each teams}}
+            {{#each teams}}
 
-            <li class="list-group-item">
-              <span style="font-weight:600;">
-                <img class="me-2" height="20" width="20" src={{flag}} />{{name}}
-              </span>
+              <li class="list-group-item">
+                <span style="font-weight:600;">
+                  <img class="me-2" height="20" width="20" src={{flag}} /><a
+                    href="leagues/{{id}}/teams"
+                  >{{name}}</a>
+                </span>
 
-            </li>
+              </li>
 
-             <form action="/favorites/teams/delete" method="post">
-                  <input
-                    type="text"
-                    name="name"
-                    value="{{name}}"
-                    style="display: none;"
-                  />
-                      <button type="submit" class="star-button">
-                        <span class="fa fa-star checked">
-                        </span>
-                    </button>
-                </form>
+              <form action="/favorites/teams/delete" method="post">
+                <input
+                  type="text"
+                  name="name"
+                  value="{{name}}"
+                  style="display: none;"
+                />
+                <button type="submit" class="star-button">
+                  <span class="fa fa-star checked">
+                  </span>
+                </button>
+              </form>
 
-          {{/each}}
-        </ul>
+            {{/each}}
+          </ul>
+        </div>
       </div>
-    </div>
+    {{/if}}
 
-    <div class="container mt-4">
-      <h1 class="mb-6" data-aos="zoom-in">Your favorite Players</h1>
+    {{#if players}}
 
-      <div class="col-md-8 col-sm-12">
-        <ul class="list-group list-favourites">
+      <div class="container mt-4">
+        <h2>Players</h2>
 
-          {{#each players}}
+        <div class="col-md-8 col-sm-12">
+          <ul class="list-group list-favourites">
 
-            <li class="list-group-item">
-              <span style="font-weight:600;">
-                <img class="me-2" height="20" width="20" src={{flag}} />{{name}}
-              </span>
+            {{#each players}}
 
-            </li>
+              <li class="list-group-item">
+                <span style="font-weight:600;">
+                  <img class="me-2" height="20" width="20" src={{flag}} />
+                  <a href="leagues/{{id}}/teams">{{name}}</a>
+                </span>
 
-             <form action="/favorites/players/delete" method="post">
-                  <input
-                    type="text"
-                    name="name"
-                    value="{{name}}"
-                    style="display: none;"
-                  />
-                      <button type="submit" class="star-button">
-                        <span class="fa fa-star checked">
-                        </span>
-                    </button>
-                </form>
+              </li>
 
-          {{/each}}
-        </ul>
+              <form action="/favorites/players/delete" method="post">
+                <input
+                  type="text"
+                  name="name"
+                  value="{{name}}"
+                  style="display: none;"
+                />
+                <button type="submit" class="star-button">
+                  <span class="fa fa-star checked">
+                  </span>
+                </button>
+              </form>
+
+            {{/each}}
+          </ul>
+        </div>
       </div>
-    </div>
+    {{/if}}
 
   </body>
 

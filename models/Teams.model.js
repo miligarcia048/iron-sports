@@ -1,15 +1,16 @@
-const { Schema, model } = require('mongoose');
+const { Schema, model } = require("mongoose");
 
 const teamsSchema = new Schema(
-    {
-        name: String,
-        flag: String
-    },
-    { 
-        timestamps: true 
-    }
-  );
+  {
+    id: String,
+    name: String,
+    flag: String,
+  },
+  {
+    timestamps: true,
+  }
+);
 
-const Teams = model('Teams', teamsSchema);
+const Teams = model("Teams", teamsSchema);
 
 module.exports = Teams;
