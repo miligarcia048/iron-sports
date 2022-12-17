@@ -440,12 +440,12 @@
                 <div class="mt-a">
                   <a href="../{{id}}/team" class="btn check-team">Check Team</a>
                 </div>
-                
+
                 <form action="/favorites/teams" method="post">
                   <input type="text" name="flag" value="{{crest}}" style="display: none;">
                   <input type="text" name="name" value="{{name}}" style="display: none;">
                   
-                {{#if @root.user}}
+                {{#if @root.user}}                
                     {{#isValueInKey @root.user.teams name 'name'}}
                   Already favorited!
 

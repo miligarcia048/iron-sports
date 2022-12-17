@@ -25,6 +25,19 @@
 
             </li>
 
+            <form action="/favorites/delete" method="post">
+                  <input
+                    type="text"
+                    name="name"
+                    value="{{name}}"
+                    style="display: none;"
+                  />
+                      <button type="submit" class="star-button">
+                        <span class="fa fa-star checked">
+                        </span>
+                        </button>
+                </form>
+
           {{/each}}
         </ul>
       </div>
@@ -45,6 +58,19 @@
 
             </li>
 
+             <form action="/favorites/teams/delete" method="post">
+                  <input
+                    type="text"
+                    name="name"
+                    value="{{name}}"
+                    style="display: none;"
+                  />
+                      <button type="submit" class="star-button">
+                        <span class="fa fa-star checked">
+                        </span>
+                    </button>
+                </form>
+
           {{/each}}
         </ul>
       </div>
@@ -64,6 +90,19 @@
               </span>
 
             </li>
+
+             <form action="/favorites/players/delete" method="post">
+                  <input
+                    type="text"
+                    name="name"
+                    value="{{name}}"
+                    style="display: none;"
+                  />
+                      <button type="submit" class="star-button">
+                        <span class="fa fa-star checked">
+                        </span>
+                    </button>
+                </form>
 
           {{/each}}
         </ul>
