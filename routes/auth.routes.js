@@ -38,7 +38,7 @@ router.post("/signup", async (req, res, next) => {
     const salt = await bcrypt.genSalt(saltRounds);
     const passwordHash = await bcrypt.hash(password, salt);
     const user = await User.create({ username, email, passwordHash });
-    req.session.user = user;
+    req.user = user;
     res.redirect("/");
   } catch (error) {
     if (error instanceof mongoose.Error.ValidationError) {
@@ -87,7 +87,7 @@ router.post("/login", async (req, res, next) => {
         return next(error);
       }
 
-      req.session.user = user;
+      req.user = user;
       //Everything went good, redirecting the user
       res.redirect("/");
     });

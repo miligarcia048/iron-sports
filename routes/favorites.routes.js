@@ -9,10 +9,10 @@ const { isLoggedIn } = require("../middleware/route-guard");
 router.get("/favorites", isLoggedIn, async (req, res, next) => {
   try {
     let currentUserPopulated = await User.findById(
-      req.session.user._id
+      req.user._id
     ).populate("favorites");
     const favourites = currentUserPopulated.favorites;
-    console.log(req.session.user._id);
+    console.log(req.user._id);
     console.log(favourites);
 
     res.render("favorites", {
@@ -36,7 +36,7 @@ router.post("/favorites", isLoggedIn, async (req, res, next) => {
       });
     }
     await User.findByIdAndUpdate(
-      req.session.user._id,
+      req.user._id,
       {
         $push: {
           favorites: favoriteLeague._id,

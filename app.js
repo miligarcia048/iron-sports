@@ -28,6 +28,12 @@ hbs.registerHelper("length", function (v1, v2, options) {
   return options.inverse(this);
 });
 
+hbs.registerHelper("isValueInKey", function (array, value, key, options) {
+    return array.find(el => el[key] === value)
+      ? options.fn(this)
+      : options.inverse(this);
+  });
+
 const app = express();
 
 // ℹ️ This function is getting exported from the config folder. It runs most pieces of middleware
