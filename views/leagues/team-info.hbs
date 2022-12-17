@@ -42,32 +42,38 @@
             {{#each team.squad}}
 
               <li class="list-group-item">
-                <span style="font-weight:600;">
-                  <img
-                    src="https://www.sciencekids.co.nz/images/pictures/flags680/{{nationality}}.jpg"
-                  />{{name}}
-                </span>
-                {{position}}
+                <div class="d-flex justify-content-between">
+                 
+                    <div>
+                       <span style="font-weight:600;">
+                      <img
+                        src="https://www.sciencekids.co.nz/images/pictures/flags680/{{nationality}}.jpg"
+                      />{{name}}
+                                        </span>
+                                        {{position}}
+                    </div>
+                    <form action="/favorites/players" method="post">
+                    <input type="text" name="flag" value="https://www.sciencekids.co.nz/images/pictures/flags680/{{nationality}}.jpg" style="display: none;">
+                    <input type="text" name="name" value="{{name}}" style="display: none;">
+                  
+                  {{#if @root.user}}
+                      {{#isValueInKey @root.user.players name 'name'}}
+                     <span class="fa fa-star checked"></span>
+                      {{else}}
+                    <button type="submit" class="star-button"><span
+                              class="fa fa-star"
+                            ></span></button>
+                      {{/isValueInKey }}
+                    {{/if}}
+                    {{#unless @root.user}}
+                    <a href="/login">
+                    <span class="fa fa-star"></span>
+                    </a>
+                    {{/unless}}
+                    </form>
+                </div>
               </li>
 
-               <form action="/favorites/players" method="post">
-                  <input type="text" name="flag" value="https://www.sciencekids.co.nz/images/pictures/flags680/{{nationality}}.jpg" style="display: none;">
-                  <input type="text" name="name" value="{{name}}" style="display: none;">
-                  
-                {{#if @root.user}}
-                    {{#isValueInKey @root.user.players name 'name'}}
-                  Already favorited!
-
-                    {{else}}
-                  <button type="submit">Add to Favorites</button>
-
-                    {{/isValueInKey }}
-                  {{/if}}
-
-                  {{#unless @root.user}} 
-                  <a href="/login">Add to Favorites</a>
-                  {{/unless}}
-                  </form>
 
             {{/each}}
           </ul>

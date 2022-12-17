@@ -169,6 +169,12 @@ h2 {
 .leagues-card img {
   background-color: white;
 }
+.teams-card .card-title{
+  width: 90%;
+}
+.leagues-card .card-title {
+  width: 90%;
+}
 .leagues .image-div {
   height: 50%;
 }
