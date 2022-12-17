@@ -8,8 +8,11 @@ const User = require("../models/User.model");
 
 const { isLoggedIn } = require("../middleware/route-guard");
 
+// Create
+
 router.get("/favorites", isLoggedIn, async (req, res, next) => {
   try {
+
     let currentUserPopulated = await User.findById(
       req.user._id
     ).populate("favorites teams players");
@@ -93,21 +96,22 @@ router.post("/favorites/teams", isLoggedIn, async (req, res, next) => {
   }
 });
 
+
 router.post("/favorites/players", isLoggedIn, async (req, res, next) => {
   try {
     const { name, flag } = req.body;
-
+    
     let favoritePlayer = await Players.findOne({
       name,
     });
-
+    
     if (!favoritePlayer) {
       favoritePlayer = await Players.create({
         name,
         flag,
       });
     }
-
+    
     await User.findByIdAndUpdate(
       req.user._id,
       {
@@ -118,7 +122,76 @@ router.post("/favorites/players", isLoggedIn, async (req, res, next) => {
       {
         new: true,
       }
-    );
+      );
+      res.redirect("/favorites");
+    } catch (error) {
+      next(error);
+    }
+  });
+  
+
+// Delete Leagues
+
+router.post("/favorites/delete", async (req, res, next) => {
+  try {
+    const { name } = req.body;
+
+    let favoriteLeague = await Favorites.findOne({
+      name,
+    });
+
+    await User.findByIdAndUpdate(
+      req.user._id, 
+      { 
+        $pull: {
+        favorites: favoriteLeague._id,
+      },
+    });
+    
+    res.redirect("/favorites");
+  } catch (error) {
+    next(error);
+  }
+});
+
+router.post("/favorites/teams/delete", async (req, res, next) => {
+  try {
+    const { name } = req.body;
+
+    let favoriteTeam = await Teams.findOne({
+      name,
+    });
+
+    await User.findByIdAndUpdate(
+      req.user._id, 
+      { 
+        $pull: {
+        teams: favoriteTeam._id,
+      },
+    });
+
+    res.redirect("/favorites");
+  } catch (error) {
+    next(error);
+  }
+});
+
+router.post("/favorites/players/delete", async (req, res, next) => {
+  try {
+    const { name } = req.body;
+
+    let favoritePlayer = await Players.findOne({
+      name,
+    });
+
+    await User.findByIdAndUpdate(
+      req.user._id, 
+      { 
+        $pull: {
+        players: favoritePlayer._id,
+      },
+    });
+
     res.redirect("/favorites");
   } catch (error) {
     next(error);
