@@ -112,21 +112,6 @@ router.get("/edit", isLoggedIn, (req, res, next) => {
   }
 });
 
-// router.post(
-//   '/edit',
-//   fileUploader.single('picture_url'),
-//   async (req, res, next) => {
-//     try {
-//       if (req.file) {
-//         User.picture_url = req.file.path;
-//       }
-//       res.redirect('/edit');
-//     } catch (error) {
-//       next(error);
-//     }
-//   }
-// );
-
 router.post("/edit", fileUploader.single('picture_url'), isLoggedIn, async (req, res, next) => {
   try {
     console.log(req.body)

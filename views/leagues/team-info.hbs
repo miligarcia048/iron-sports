@@ -50,6 +50,25 @@
                 {{position}}
               </li>
 
+               <form action="/favorites/players" method="post">
+                  <input type="text" name="flag" value="https://www.sciencekids.co.nz/images/pictures/flags680/{{nationality}}.jpg" style="display: none;">
+                  <input type="text" name="name" value="{{name}}" style="display: none;">
+                  
+                {{#if @root.user}}
+                    {{#isValueInKey @root.user.players name 'name'}}
+                  Already favorited!
+
+                    {{else}}
+                  <button type="submit">Add to Favorites</button>
+
+                    {{/isValueInKey }}
+                  {{/if}}
+
+                  {{#unless @root.user}} 
+                  <a href="/login">Add to Favorites</a>
+                  {{/unless}}
+                  </form>
+
             {{/each}}
           </ul>
         </div>
