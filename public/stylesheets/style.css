@@ -546,7 +546,42 @@ h2 {
   padding: 20px;
   color: white;
 }
+/*editprofile*/
 
+.edit-profile {
+  color: white !important;
+}
+.edit-profile .card {
+  background-color: #272727;
+}
+.edit-profile .text-muted {
+  color: white !important;
+  font-size: 18px;
+  padding-bottom: 15px !important;
+}
+.edit-profile .rounded-circle {
+  background-color: white;
+}
+.align-edit-profile {
+  display: flex;
+  justify-content: center;
+}
+.edit-profile .labels {
+  color: #fff;
+  font-weight: 700;
+  font-size: 20px;
+}
+.edit-button {
+  border-radius: 5%;
+  background-color: #018786;
+  border: none;
+  color: white;
+  padding: 6px 10px;
+}
+.edit-button:hover {
+  background-color: white;
+  color: #018786;
+}
 @media only screen and (max-width: 600px) {
   .navbar-collapse {
     background-color: #272727;
