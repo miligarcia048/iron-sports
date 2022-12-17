@@ -1,15 +1,34 @@
-<!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Favorites</title>
-</head>
-<body>
-    {{#each favourites}}
-        <h1>{{name}}</h1>
-        <h2>{{flag}}</h2>
-    {{/each}}
-</body>
+  </head>
+  <body>
+    {{!--{{#each favourites}}
+      <h1>{{name}}</h1>
+      <h2>{{flag}}</h2>
+    {{/each}}--}}
+    <div class="container mt-4">
+      <h1 class="mb-6" data-aos="zoom-in">Your favorites</h1>
+
+      <div class="col-md-8 col-sm-12">
+        <ul class="list-group list-favourites">
+
+          {{#each favourites}}
+
+            <li class="list-group-item">
+              <span style="font-weight:600;">
+                <img class="me-2" height="20" width="20" src={{flag}} />{{name}}
+              </span>
+
+            </li>
+
+          {{/each}}
+        </ul>
+      </div>
+    </div>
+  </body>
+
 </html>
