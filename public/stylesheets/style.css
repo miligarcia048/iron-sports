@@ -76,12 +76,15 @@ h2 {
   color: white;
 }
 .profile-button a {
-  padding-left: 6px !important;
+  padding-left: 12px !important;
 }
 .profile-button:hover {
   border: white 2px solid !important;
 }
-
+.profile-img {
+  background-color: white;
+  border-radius: 20px;
+}
 /*home*/
 .banner {
   background-position: center;
