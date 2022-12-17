@@ -40,24 +40,38 @@
                 <a href="leagues/{{id}}/teams" class="btn button-check">Check
                   League</a>
 
-                 <form action="/favorites" method="post">
-                  <input type="text" name="flag" value="{{area.flag}}" style="display: none;">
-                  <input type="text" name="name" value="{{name}}" style="display: none;">
-                  
-                {{#if @root.user}}
-                    {{#isValueInKey @root.user.favorites name 'name'}}
-                  Already favorited!
+                <form action="/favorites" method="post">
+                  <input
+                    type="text"
+                    name="flag"
+                    value="{{area.flag}}"
+                    style="display: none;"
+                  />
+                  <input
+                    type="text"
+                    name="name"
+                    value="{{name}}"
+                    style="display: none;"
+                  />
+
+                  {{#if @root.user}}
+                    {{#isValueInKey @root.user.favorites name "name"}}
+                      <span class="fa fa-star checked"></span>
 
                     {{else}}
-                  <button type="submit">Add to Favorites</button>
+                      <button type="submit" class="star-button"><span
+                          class="fa fa-star"
+                        ></span></button>
 
-                    {{/isValueInKey }}
+                    {{/isValueInKey}}
                   {{/if}}
 
-                  {{#unless @root.user}} 
-                  <a href="/login">Add to Favorites</a>
+                  {{#unless @root.user}}
+                    <a href="/login"><span
+                        class="fa fa-star checked"
+                      ></span></a>
                   {{/unless}}
-                  </form>
+                </form>
 
               </div>
             </div>
