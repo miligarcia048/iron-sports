@@ -170,7 +170,7 @@ h2 {
 .leagues-card img {
   background-color: white;
 }
-.teams-card .card-title{
+.teams-card .card-title {
   width: 90%;
 }
 .leagues-card .card-title {
@@ -636,6 +636,9 @@ h2 {
   }
   .buttons_nav_bar {
     border: none !important;
+    color: #018786 !important;
+  }
+  .sign-up {
     color: #018786 !important;
   }
   .buttons_nav_bar:active {

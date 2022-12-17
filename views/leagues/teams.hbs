@@ -448,16 +448,15 @@
                         {{#isValueInKey @root.user.teams name "name"}}
                           <span class="fa fa-star checked"></span>
                         {{else}}
-                             <button type="submit" class="star-button"><span
-                            class="fa fa-star"
-                          ></span></button>
+                          <button type="submit" class="star-button"><span
+                              class="fa fa-star"
+                            ></span></button>
                         {{/isValueInKey}}
                       {{/if}}
                       {{#unless @root.user}}
                         <a href="/login">
-                        <span
-                            class="fa fa-star"
-                          ></span>
+                          <span class="fa fa-star"></span>
+                        </a>
                       {{/unless}}
                     </form>
                   </div>
