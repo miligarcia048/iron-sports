@@ -110,6 +110,7 @@
                         More</a>
         </div>
         <div class="col-md-5">
+          {{#if news.articles.0.urlToImage}}
           <img
             class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto"
            height="200"
@@ -119,6 +120,17 @@
             role="img"
            
           ></img>
+{{else}}
+  <img
+            class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto"
+           height="200"
+            src="https://img.olympicchannel.com/images/image/private/t_social_share_thumb/f_auto/primary/qjxgsf7pqdmyqzsptxju"
+            preserveAspectRatio="xMidYMid slice"
+            focusable="false"
+            role="img"
+           
+          ></img>
+{{/if}}
         </div>
       </div>
 
@@ -138,16 +150,27 @@
                         More</a>
         </div>
         <div class="col-md-5 order-md-1">
+         {{#if news.articles.1.urlToImage}}
           <img
             class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto"
-            width="500"
-            height="500"
+           height="200"
             src={{news.articles.1.urlToImage}}
             preserveAspectRatio="xMidYMid slice"
             focusable="false"
             role="img"
-            aria-label="Placeholder: 500x500"
+           
           ></img>
+{{else}}
+  <img
+            class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto"
+           height="200"
+            src="https://img.olympicchannel.com/images/image/private/t_social_share_thumb/f_auto/primary/qjxgsf7pqdmyqzsptxju"
+            preserveAspectRatio="xMidYMid slice"
+            focusable="false"
+            role="img"
+           
+          ></img>
+{{/if}}
         </div>
       </div>
 
@@ -166,16 +189,27 @@
                         More</a>
         </div>
         <div class="col-md-5">
-      <img
+       {{#if news.articles.2.urlToImage}}
+          <img
             class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto"
-            width="500"
-            height="500"
+           height="200"
             src={{news.articles.2.urlToImage}}
             preserveAspectRatio="xMidYMid slice"
             focusable="false"
             role="img"
-            aria-label="Placeholder: 500x500"
+           
           ></img>
+{{else}}
+  <img
+            class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto"
+           height="200"
+            src="https://img.olympicchannel.com/images/image/private/t_social_share_thumb/f_auto/primary/qjxgsf7pqdmyqzsptxju"
+            preserveAspectRatio="xMidYMid slice"
+            focusable="false"
+            role="img"
+           
+          ></img>
+{{/if}}
         </div>
       </div>
 
