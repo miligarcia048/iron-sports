@@ -20,24 +20,8 @@
                 <img src="{{emblem}}" class="card-img-top" alt="..." />
               </div>
               <div class="card-body">
-                <div style="display: flex;">
-                  <h5 class="card-title me-2">{{name}}</h5>
-                  {{#if @root.user}}
-                    {{#isValueInKey @root.user.favorites name "name"}}
-                      <span class="fa fa-star checked"></span>
 
-                    {{else}}
-                      <button type="submit"><span
-                          class="fa fa-star"
-                        ></span></button>
-
-                    {{/isValueInKey}}
-                  {{/if}}
-
-                  {{#unless @root.user}}
-                    <a href="/login"><span class="fa fa-star"></span></a>
-                  {{/unless}}
-                </div>
+                <h5 class="card-title">{{name}}</h5>
                 <div class="d-flex">
                   {{#if area.flag}}
                     <div>
@@ -56,21 +40,24 @@
                 <a href="leagues/{{id}}/teams" class="btn button-check">Check
                   League</a>
 
-                <form action="/favorites" method="post">
-                  <input
-                    type="text"
-                    name="flag"
-                    value="{{area.flag}}"
-                    style="display: none;"
-                  />
-                  <input
-                    type="text"
-                    name="name"
-                    value="{{name}}"
-                    style="display: none;"
-                  />
+                 <form action="/favorites" method="post">
+                  <input type="text" name="flag" value="{{area.flag}}" style="display: none;">
+                  <input type="text" name="name" value="{{name}}" style="display: none;">
+                  
+                {{#if @root.user}}
+                    {{#isValueInKey @root.user.favorites name 'name'}}
+                  Already favorited!
 
-                </form>
+                    {{else}}
+                  <button type="submit">Add to Favorites</button>
+
+                    {{/isValueInKey }}
+                  {{/if}}
+
+                  {{#unless @root.user}} 
+                  <a href="/login">Add to Favorites</a>
+                  {{/unless}}
+                  </form>
 
               </div>
             </div>
