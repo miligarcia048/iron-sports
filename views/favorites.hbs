@@ -10,17 +10,23 @@
       <h1>{{name}}</h1>
       <h2>{{flag}}</h2>
     {{/each}}--}}
-    <div class="container favourites">
+    <div class="container">
       {{#if favourites}}
-        {{#if teams}}
-          {{#if players}}
-            <h1 class="mb-6" data-aos="zoom-in">Favorites</h1>
-          {{/if}}
-        {{/if}}
-      {{else}}
-        <h1 class="mb-6" data-aos="zoom-in">You dont have any favourites yet</h1>
-        <button type="button" class="btn btn-primary btn-circle">+</button>
+        <h1 class="mb-6" data-aos="zoom-in">Favorites</h1>
+      {{else if players}}
+        <h1 class="mb-6" data-aos="zoom-in">Favorites</h1>
+      {{else if teams}}
+        <h1 class="mb-6" data-aos="zoom-in">Favorites</h1>
 
+      {{else}}
+        <div data-aos="zoom-in" class="favourites">
+          <h1 class="mb-6" data-aos="zoom-in">You dont have any favourites yet</h1>
+          <a href="/leagues"><button
+              type="button"
+              class="btn btn-primary btn-circle"
+            >+</button>
+          </a>
+        </div>
       {{/if}}
       {{#if favourites}}
         <h2>Leagues</h2>

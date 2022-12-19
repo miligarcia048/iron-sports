@@ -203,7 +203,7 @@ h2 {
 .standings-groups {
   overflow: scroll;
   max-height: 566px;
-  min-height: 566px;
+  min-height: 625px !important;
   padding: 10px 30px;
 }
 .standings-normal {
@@ -558,6 +558,12 @@ h2 {
 .btn-circle:hover {
   color: #018786;
   background-color: #fff;
+}
+.btn-circle:focus {
+  color: #018786 !important;
+  background-color: #fff !important;
+  border: transparent !important;
+  box-shadow: none !important;
 }
 .star-button {
   background-color: transparent !important;
