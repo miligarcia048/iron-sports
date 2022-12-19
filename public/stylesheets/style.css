@@ -372,10 +372,14 @@ h2 {
   padding: 25px;
 }
 /*login*/
-
+.login-container {
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: calc(100% - 80px) !important;
+}
 .login .card {
   background-color: transparent !important;
-  margin-top: 20px;
   border: #018786 3px solid !important;
 }
 
@@ -433,10 +437,15 @@ h2 {
   padding: 7%;
 }
 /*singUp*/
-
+.sing-up-container {
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: calc(100% - 80px) !important;
+}
 .sing-up .card {
   background-color: transparent !important;
-  margin-top: 20px;
+
   border: #018786 3px solid !important;
 }
 
@@ -530,6 +539,26 @@ h2 {
 }
 
 /*favourites*/
+.favourites {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: calc(100% - 80px) !important;
+}
+.btn-circle {
+  width: 50px;
+  height: 50px;
+  border-radius: 35px;
+  font-size: 20px;
+  text-align: center;
+  background-color: #018786;
+  border: none;
+}
+.btn-circle:hover {
+  color: #018786;
+  background-color: #fff;
+}
 .star-button {
   background-color: transparent !important;
   color: white;
@@ -559,7 +588,12 @@ h2 {
 /*editprofile*/
 
 .edit-profile {
+  display: flex;
   color: white !important;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: calc(100% - 80px) !important;
 }
 .edit-profile .card {
   background-color: #272727;
@@ -572,10 +606,7 @@ h2 {
 .edit-profile .rounded-circle {
   background-color: white;
 }
-.align-edit-profile {
-  display: flex;
-  justify-content: center;
-}
+
 .edit-profile .labels {
   color: #fff;
   font-weight: 700;
@@ -653,5 +684,23 @@ h2 {
 
   .google-button {
     font-size: 16px;
+  }
+  .edit-profile {
+    height: auto !important;
+    margin-top: 20px;
+  }
+  .login-container {
+    height: auto !important;
+    margin-top: 20px;
+  }
+  .sing-up-container {
+    height: auto !important;
+    margin-top: 20px;
+  }
+  .teams .table-matches {
+    font-size: 14px !important;
+  }
+  .dataTables_length {
+    display: none;
   }
 }

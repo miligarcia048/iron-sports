@@ -119,7 +119,7 @@
           {{/length}}
         </div>
 
-        <h2> Matches</h2>
+        <h2 class="mt-4"> Matches</h2>
         <ul class="nav nav-tabs ms-2 mt-2" id="myTab" role="tablist">
           <li class="nav-item" role="presentation">
             <button
@@ -166,7 +166,7 @@
             aria-labelledby="home-tab"
           ><table
               id="example"
-              class="table-dark table table-hover rounded rounded-3 overflow-hidden table-striped table-bordered table-sm"
+              class="table-dark table table-hover rounded rounded-3 overflow-hidden table-striped table-bordered table-sm table-matches"
               cellspacing="0"
               width="100%"
             >
@@ -175,9 +175,9 @@
                   <th class="th-sm">Team 1</th>
                   <th class="th-sm">Team 2</th>
                   <th class="th-sm">Date</th>
-                  <th class="th-sm">Time</th>
-                  <th class="th-sm">Status</th>
-                  <th class="th-sm">Stage</th>
+                  <th class="th-sm display-none">Time</th>
+                  <th class="th-sm display-none">Status</th>
+                  <th class="th-sm display-none">Stage</th>
 
                 </tr>
               </thead>
@@ -209,10 +209,12 @@
                       {{/if}}
                       <td>{{dateFormat utcDate " DD MMM  YYYY"}}
                       </td>
-                      <td>{{dateFormat utcDate "h:mm a"}}
+                      <td class="display-none">{{dateFormat utcDate "h:mm a"}}
                       </td>
-                      <td>{{status}}</td>
-                      {{#if stage}}<td>{{stage}}</td>{{/if}}
+                      <td class="display-none">{{status}}</td>
+                      {{#if stage}}<td
+                          class="display-none"
+                        >{{stage}}</td>{{/if}}
 
                     </tr>
                   {{/ifEquals}}
@@ -228,7 +230,7 @@
             aria-labelledby="profile-tab"
           ><table
               id="table3"
-              class="table-dark table table-hover rounded rounded-3 overflow-hidden table-striped table-bordered table-sm"
+              class="table-dark table table-hover rounded rounded-3 overflow-hidden table-striped table-bordered table-sm table-matches"
               cellspacing="0"
               width="100%"
             >
@@ -238,8 +240,8 @@
                   <th class="th-sm">Home vs Away</th>
                   <th class="th-sm">Team 2</th>
 
-                  <th class="th-sm">Date</th>
-                  <th class="th-sm">Time</th>
+                  <th class="th-sm display-none">Date</th>
+                  <th class="th-sm display-none">Time</th>
 
                   <th class="th-sm">Winning</th>
 
@@ -277,9 +279,12 @@
                       {{else}}
                         <th>-</th>
                       {{/if}}
-                      <td>{{dateFormat utcDate "DD MMM  YYYY"}}
+                      <td class="display-none">{{dateFormat
+                          utcDate
+                          "DD MMM  YYYY"
+                        }}
                       </td>
-                      <td>{{dateFormat utcDate "h:mm a"}}
+                      <td class="display-none">{{dateFormat utcDate "h:mm a"}}
                       </td>
 
                       <td>
@@ -325,7 +330,7 @@
             aria-labelledby="contact-tab"
           ><table
               id="table2"
-              class="table-dark table table-hover rounded rounded-3 overflow-hidden table-striped table-bordered table-sm"
+              class="table-dark table table-hover rounded rounded-3 overflow-hidden table-striped table-bordered table-sm table-matches"
               cellspacing="0"
               width="100%"
             >
@@ -335,10 +340,10 @@
                   <th class="th-sm">Home vs Away</th>
                   <th class="th-sm">Team 2</th>
 
-                  <th class="th-sm">Date</th>
-                  <th class="th-sm">Time</th>
-                  <th class="th-sm">Status</th>
-                  <th class="th-sm">Winner</th>
+                  <th class="th-sm display-none">Date</th>
+                  <th class="th-sm display-none">Time</th>
+
+                  <th class="th-sm display-none">Winner</th>
 
                 </tr>
               </thead>
@@ -374,13 +379,15 @@
                       {{else}}
                         <th>-</th>
                       {{/if}}
-                      <td>{{dateFormat utcDate "DD MMM  YYYY"}}
+                      <td class="display-none">{{dateFormat
+                          utcDate
+                          "DD MMM  YYYY"
+                        }}
                       </td>
-                      <td>{{dateFormat utcDate "h:mm a"}}
+                      <td class="display-none">{{dateFormat utcDate "h:mm a"}}
                       </td>
-                      <td>{{status}}</td>
 
-                      <td>
+                      <td class="display-none">
 
                         {{#ifEquals score.winner "HOME_TEAM"}}
 
