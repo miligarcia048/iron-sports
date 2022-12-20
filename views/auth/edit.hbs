@@ -83,76 +83,84 @@
 </section>
  
 <!-- The Modal -->
-<div class="modal" id="usernameModal">
-  <div class="modal-dialog"  style="background-color: black;">
-    <div class="modal-content"  style="background-color: black;">
+<div class="modal fade" id="usernameModal">
+  <div class="modal-dialog"  style="background-color: FFF; color: black;border-radius: 50%">
+    <div class="modal-content">
 
       <!-- Modal Header -->
       <div class="modal-header">
+        <i class="fa fa-pencil prefix"></i>
         <h4 class="modal-title">Edit Username</h4>
         <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
       </div>
 
       <!-- Modal body -->
-      <div class="modal-body">
+      <div class="modal-body md-form form-sm">
                 <form action="/edit" method="post">
-                <label>
-                    Username
-                    <input type="text" name="username">
-                </label>
-                <button type="submit">Edit</button>
-            </form>
+                    <i class="fa fa-envelope prefix"></i>
+                    <label>New Username</label>
+                    <input type="text" name="username" class="form-control-sm">
       </div>
 
       <!-- Modal footer -->
       <div class="modal-footer">
+        <button type="submit" class="btn edit-button">Edit</button>
         <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
       </div>
 
+    </form>
     </div>
   </div>
 </div>
 
-<div class="modal" id="emailModal">
-  <div class="modal-dialog"  style="background-color: black;">
-    <div class="modal-content"  style="background-color: black;">
+<div class="modal fade" id="emailModal" style="border-radius: 40%;">
+  <div class="modal-dialog"  style="background-color: FFF; color: black; border-radius: 50%">
+    <div class="modal-content">
 
       <!-- Modal Header -->
       <div class="modal-header">
+        <i class="fa fa-pencil prefix"></i>
         <h4 class="modal-title">Edit Email</h4>
         <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
       </div>
 
       <!-- Modal body -->
-      <div class="modal-body">
+      <div class="modal-body md-form form-sm">
                 <form action="/edit" method="post">
-                <label>
-                    Email
-                    <input type="text" name="email">
-                </label>
-                <label>
-                    Confirm email
-                    <input type="text" name="confirmedEmail">
-                </label>
-                <button type="submit">Edit</button>
-        </form>
+                <div class="d-flex modals-div">
+                    <i class="fa fa-lock prefix"></i>
+                    <label>
+                        Email
+                        <input type="text" name="email" class="form-control-sm">
+                    </label>
+                </div>
+                <div class="d-flex modals-div">
+                    <i class="fa fa-lock prefix"></i>
+                    <label>
+                        Confirm email
+                        <input type="text" name="confirmedEmail" class="form-control-sm">
+                    </label>
+                </div>
       </div>
 
       <!-- Modal footer -->
       <div class="modal-footer">
+        <button type="submit" class="btn edit-button">Edit</button>
         <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
       </div>
 
     </div>
+    </form>
   </div>
 </div>
 
-<div class="modal" id="passwordModal">
-  <div class="modal-dialog"  style="background-color: black;">
-    <div class="modal-content"  style="background-color: black;">
+<div class="modal fade" id="passwordModal">
+  <div class="modal-dialog" style="background-color: FFF; color: black;border-radius: 50%">
+    <div class="modal-content">
 
       <!-- Modal Header -->
       <div class="modal-header">
+        <i class="fa fa-pencil prefix"></i>
         <h4 class="modal-title">Edit Password</h4>
         <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
       </div>
@@ -160,28 +168,41 @@
       <!-- Modal body -->
       <div class="modal-body">
                 <form action="/edit" method="post">
-                <label>
-                    Current Password
-                    <input type="text" name="oldPassword">
-                </label>
-                <label>
-                    New Password
-                    <input type="text" name="newPassword">
-                </label>
-                <label>
-                    Confirm New Password
-                    <input type="text" name="confirmedNewPassword">
-                </label>
-                <button type="submit">Edit</button>
-        </form>
+                
+                <div class="d-flex modals-div">
+                  <i class="fa fa-lock prefix"></i>
+                  <label>
+                      Current Password
+                      <input type="text" name="oldPassword">
+                  </label>
+                </div>
+                
+                <div class="d-flex modals-div">
+                  <i class="fa fa-pencil prefix"></i>
+                  <label>
+                      New Password
+                      <input type="text" name="newPassword">
+                  
+                  </label>
+                </div>
+
+                <div class="d-flex modals-div">
+                  <label>
+                      <i class="fa fa-exclamation-triangle prefix grey-text"></i>
+                      Confirm New Password
+                      <input type="text" name="confirmedNewPassword">
+                  </label>
+                </div>
       </div>
 
       <!-- Modal footer -->
       <div class="modal-footer">
+        <button type="submit" class="btn edit-button">Edit</button>
         <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
       </div>
-
     </div>
+
+    </form>
   </div>
 </div>
 

@@ -705,3 +705,9 @@ h2 {
     display: none;
   }
 }
+
+.modals-div {
+  justify-content:  center; 
+  align-items: center;
+  gap: 3%;
+}
