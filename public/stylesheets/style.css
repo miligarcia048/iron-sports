@@ -405,7 +405,7 @@ h2 {
   background-color: #018786;
   border: none;
   color: white !important;
-  width: 100%;
+  width: 50%;
 }
 .login-button:active {
   color: #018786;
@@ -422,11 +422,6 @@ h2 {
 }
 .no-account p {
   color: #dadada !important;
-}
-
-.google-button {
-  border: #dadada solid 1px;
-  width: 100% !important;
 }
 
 .google-button a {
@@ -479,7 +474,7 @@ h2 {
 
 .google-button {
   border: #dadada solid 1px;
-  width: 100% !important;
+  width: 50% !important;
 }
 
 .google-button a {
