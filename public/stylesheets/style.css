@@ -486,7 +486,15 @@ h2 {
 }
 
 /* Edit page */
-
+.edit-profile-container {
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: calc(100% - 80px) !important;
+}
+.edit-profile .card {
+  padding: 5% 10% 8% 10%;
+}
 .popup {
   position: absolute;
   left: 50%;
@@ -510,7 +518,23 @@ h2 {
 .userPop {
   display: none;
 }
-
+.submit-profile-pic {
+  background-color: #018786;
+  border: none;
+  margin-top: 20px;
+}
+.submit-profile-pic:hover {
+  background-color: white;
+  color: #018786;
+}
+.modal-dialog {
+  color: #272727;
+}
+.modals-div {
+  justify-content: center;
+  align-items: center;
+  gap: 3%;
+}
 /*back to top button*/
 #myBtn {
   display: none;
@@ -586,6 +610,7 @@ h2 {
   padding: 20px;
   color: white;
 }
+
 /*editprofile*/
 
 .edit-profile {
@@ -623,6 +648,9 @@ h2 {
 .edit-button:hover {
   background-color: white;
   color: #018786;
+}
+.edit-button:focus {
+  box-shadow: none;
 }
 @media only screen and (max-width: 600px) {
   .navbar-collapse {
@@ -704,10 +732,4 @@ h2 {
   .dataTables_length {
     display: none;
   }
-}
-
-.modals-div {
-  justify-content:  center; 
-  align-items: center;
-  gap: 3%;
 }

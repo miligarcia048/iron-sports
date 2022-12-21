@@ -11,6 +11,7 @@
       <h2>{{flag}}</h2>
     {{/each}}--}}
     <div class="container">
+
       {{#if favourites}}
         <h1 class="mb-6" data-aos="zoom-in">Favorites</h1>
       {{else if players}}
@@ -28,23 +29,23 @@
           </a>
         </div>
       {{/if}}
-      {{#if favourites}}
-        <h2>Leagues</h2>
-        <div class="col-md-8 col-sm-12">
+      <div class="center-favourites">
+        {{#if favourites}}
+          <h3 class="mb-4">Leagues</h3>
+          <div class="col-md-12 col-sm-12">
 
-          <ul class="list-group list-favourites">
+            <ul class="list-group list-favourites">
 
-            {{#each favourites}}
-
+              {{#each favourites}}
 
                 <li class="list-group-item">
 
                   <div class="d-flex" style="justify-content: space-between;">
-                    <span style="font-weight:600;">
+                    <span style="font-weight:600; font-size: 18px;">
                       <img
                         class="me-2"
-                        height="20"
-                        width="20"
+                        height="30"
+                        width="30"
                         src={{flag}}
                       />{{name}}
                     </span>
@@ -64,95 +65,92 @@
 
                 </li>
 
+              {{/each}}
+            </ul>
+          </div>
+        {{/if}}
 
-            {{/each}}
-          </ul>
-        </div>
-      {{/if}}
+        {{#if teams}}
+          <div class="mt-4">
+            <h3 class="mb-4">Teams</h3>
+
+            <div class="col-md-12 col-sm-12">
+              <ul class="list-group list-favourites">
+
+                {{#each teams}}
+
+                  <li class="list-group-item">
+
+                    <div class="d-flex" style="justify-content: space-between;">
+                      <span style="font-weight:600; font-size: 18px;">
+                        <img class="me-2" height="30" width="30" src={{flag}} />
+
+                        {{name}}
+                      </span>
+
+                      <form action="/favorites/teams/delete" method="post">
+                        <input
+                          type="text"
+                          name="name"
+                          value="{{name}}"
+                          style="display: none;"
+                        />
+                        <button type="submit" class="star-button">
+                          <span class="fa fa-star checked">
+                          </span>
+                        </button>
+                      </form>
+                    </div>
+
+                  </li>
+
+                {{/each}}
+              </ul>
+            </div>
+          </div>
+        {{/if}}
+
+        {{#if players}}
+
+          <div class="mt-4">
+            <h3 class="mb-4">Players</h3>
+
+            <div class="col-md-12 col-sm-12">
+              <ul class="list-group list-favourites">
+
+                {{#each players}}
+
+                  <li class="list-group-item">
+
+                    <div class="d-flex" style="justify-content: space-between;">
+                      <span style="font-weight:500; font-size: 18px;">
+                        <img class="me-2" height="30" width="30" src={{flag}} />
+                        {{name}}
+                      </span>
+
+                      <form action="/favorites/players/delete" method="post">
+                        <input
+                          type="text"
+                          name="name"
+                          value="{{name}}"
+                          style="display: none;"
+                        />
+                        <button type="submit" class="star-button">
+                          <span class="fa fa-star checked">
+                          </span>
+                        </button>
+                      </form>
+                    </div>
+
+                  </li>
+
+                {{/each}}
+              </ul>
+            </div>
+          </div>
+        {{/if}}
+      </div>
     </div>
-
-    {{#if teams}}
-      <div class="container mt-4">
-        <h2>Teams</h2>
-
-        <div class="col-md-8 col-sm-12">
-          <ul class="list-group list-favourites">
-
-            {{#each teams}}
-
-              <li class="list-group-item">
-
-                <div class="d-flex" style="justify-content: space-between;">
-                  <span style="font-weight:600;">
-                    <img class="me-2" height="20" width="20" src={{flag}} /><a
-                      href="leagues/{{id}}/teams"
-                    >{{name}}</a>
-                  </span>
-                  
-                  
-                                <form action="/favorites/teams/delete" method="post">
-                  <input
-                    type="text"
-                    name="name"
-                    value="{{name}}"
-                    style="display: none;"
-                  />
-                  <button type="submit" class="star-button">
-                    <span class="fa fa-star checked">
-                    </span>
-                  </button>
-                </form>
-                </div>
-
-              </li>
-
-            {{/each}}
-          </ul>
-        </div>
-      </div>
-    {{/if}}
-
-    {{#if players}}
-
-      <div class="container mt-4">
-        <h2>Players</h2>
-
-        <div class="col-md-8 col-sm-12">
-          <ul class="list-group list-favourites">
-
-            {{#each players}}
-
-              <li class="list-group-item">
-
-                <div class="d-flex" style="justify-content: space-between;">
-                  <span style="font-weight:600;">
-                    <img class="me-2" height="20" width="20" src={{flag}} />
-                    <a href="leagues/{{id}}/teams">{{name}}</a>
-                  </span>
-                  
-                                <form action="/favorites/players/delete" method="post">
-                  <input
-                    type="text"
-                    name="name"
-                    value="{{name}}"
-                    style="display: none;"
-                  />
-                  <button type="submit" class="star-button">
-                    <span class="fa fa-star checked">
-                    </span>
-                  </button>
-                                </form>
-                </div>
-
-              </li>
-
-
-            {{/each}}
-          </ul>
-        </div>
-      </div>
-    {{/if}}
-
   </body>
 
 </html>

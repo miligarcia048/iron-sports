@@ -8,29 +8,30 @@
 </head>
 <body>
 
-<div class="edit-profile">
-    <section  >
-    <div class="container  ">
+<div class="edit-profile row">
+    <section class="col-lg-8"  >
+    <div class="container edit-profile-container ">
  
 <div >
-				<div class="card p-4"  data-aos="zoom-in">
-  <h1 class="mb-4">Edit your profile</h1>
+				<div class="card"  data-aos="zoom-in">
+  <h1 class="mb-8">Edit your profile</h1>
        <div class="row">
-					<div class="col-lg-4">
- <p class="mb-0 labels" >Profile picture</p>
+					<div class="col-lg-3">
+ 						<p class="mb-0 labels" >Profile picture</p>
           	<div class="card-body text-center">
 							<img src="{{user.picture_url}}" alt="avatar"
 								class="rounded-circle img-fluid" style="width: 150px;">
           	</div>
-          	<div class=" justify-content-center mb-2">
+          	<div class=" justify-content-center mb-2 form-profile-pic">
               <form  action="/edit" method="post" enctype="multipart/form-data">
                 
                     <input type="file" name="picture_url">
                  
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="submit" class="btn btn-primary submit-profile-pic">Submit</button>
               </form>
             </div>
 					</div>
+	<div class="col-lg-1"></div>
 					{{#if user}}
       
       		<div class="col-lg-8">
@@ -84,7 +85,7 @@
  
 <!-- The Modal -->
 <div class="modal fade" id="usernameModal">
-  <div class="modal-dialog"  style="background-color: FFF; color: black;border-radius: 50%">
+  <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
 
       <!-- Modal Header -->
@@ -105,7 +106,7 @@
       <!-- Modal footer -->
       <div class="modal-footer">
         <button type="submit" class="btn edit-button">Edit</button>
-        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+        {{!--<button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>--}}
       </div>
 
     </form>
@@ -114,7 +115,7 @@
 </div>
 
 <div class="modal fade" id="emailModal" style="border-radius: 40%;">
-  <div class="modal-dialog"  style="background-color: FFF; color: black; border-radius: 50%">
+  <div class="modal-dialog modal-dialog-centered"  >
     <div class="modal-content">
 
       <!-- Modal Header -->
@@ -146,7 +147,7 @@
       <!-- Modal footer -->
       <div class="modal-footer">
         <button type="submit" class="btn edit-button">Edit</button>
-        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+        {{!--<button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>--}}
       </div>
 
     </div>
@@ -155,7 +156,7 @@
 </div>
 
 <div class="modal fade" id="passwordModal">
-  <div class="modal-dialog" style="background-color: FFF; color: black;border-radius: 50%">
+  <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
 
       <!-- Modal Header -->
@@ -198,7 +199,7 @@
       <!-- Modal footer -->
       <div class="modal-footer">
         <button type="submit" class="btn edit-button">Edit</button>
-        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+        {{!--<button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>--}}
       </div>
     </div>
 
