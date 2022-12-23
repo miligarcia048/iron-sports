@@ -20,7 +20,6 @@ router.get("/signup", (req, res, next) => {
 
 router.post("/signup", async (req, res, next) => {
   try {
-    // console.log(req.body);
     const { username, email, password } = req.body;
     if (!username || !email || !password) {
       return res.render("auth/signup", {
@@ -63,7 +62,6 @@ router.get("/login", (req, res, next) => {
 
 router.post("/login", async (req, res, next) => {
   const { email, password } = req.body;
-  // console.log('--> Session', req.session);
   if (email === "" || password === "") {
     return res.render("auth/login", {
       errorMessage: "Please enter both email and password.",
@@ -137,6 +135,7 @@ router.post("/edit", fileUploader.single('picture_url'), isLoggedIn, async (req,
     if (oldPassword && newPassword && confirmedNewPassword) {
       if (newPassword === confirmedNewPassword) {
         try {
+          
           // const passwordHash = newPassword;
 
           if (bcrypt.compareSync(oldPassword, req.user.passwordHash)) {
@@ -163,6 +162,7 @@ router.post("/edit", fileUploader.single('picture_url'), isLoggedIn, async (req,
 });
 
 //Routes for google auth
+
 router.get(
   "/auth/google",
   passport.authenticate("google", {

@@ -47,7 +47,8 @@
                         height="30"
                         width="30"
                         src={{flag}}
-                      />{{name}}
+                      />
+                      <a href="leagues/{{id}}/teams">{{name}}</a>
                     </span>
                     <form action="/favorites/delete" method="post">
                       <input
@@ -85,7 +86,7 @@
                       <span style="font-weight:600; font-size: 18px;">
                         <img class="me-2" height="30" width="30" src={{flag}} />
 
-                        {{name}}
+                        <a href="/leagues/{{id}}/team">{{name}}</a>
                       </span>
 
                       <form action="/favorites/teams/delete" method="post">

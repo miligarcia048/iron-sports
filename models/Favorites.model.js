@@ -2,7 +2,7 @@ const { Schema, model } = require("mongoose");
 
 const favoritesSchema = new Schema(
   {
-    id: String,
+    id: Number,
     name: String,
     flag: String,
   },

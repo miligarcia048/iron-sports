@@ -452,6 +452,12 @@
                         value="{{name}}"
                         style="display: none;"
                       />
+                      <input
+                        type="number"
+                        name="id"
+                        value="{{id}}"
+                        style="display: none;"
+                      />
                       {{#if @root.user}}
                         {{#isValueInKey @root.user.teams name "name"}}
                           <span class="fa fa-star checked"></span>

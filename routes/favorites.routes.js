@@ -36,10 +36,12 @@ router.get("/favorites", isLoggedIn, async (req, res, next) => {
 
 router.post("/favorites", isLoggedIn, async (req, res, next) => {
   try {
-    const { id, name, flag } = req.body;
+    console.log(req.body)
+    const { flag, name, id } = req.body;
     let favoriteLeague = await Favorites.findOne({
       name,
     });
+    console.log(favoriteLeague)
     if (!favoriteLeague) {
       favoriteLeague = await Favorites.create({
         id,
@@ -66,7 +68,7 @@ router.post("/favorites", isLoggedIn, async (req, res, next) => {
 
 router.post("/favorites/teams", isLoggedIn, async (req, res, next) => {
   try {
-    const { id, name, flag } = req.body;
+    const { name, flag, id} = req.body;
 
     let favoriteTeam = await Teams.findOne({
       name,
