@@ -2,7 +2,12 @@
 html {
   background-color: black;
 }
-
+a {
+  color: #018786;
+}
+a:hover {
+  color: white;
+}
 body {
   font-family: Roboto;
   color: white;
@@ -336,6 +341,12 @@ h2 {
 }
 .teams .card-img-top {
   max-width: 250px !important;
+}
+.team-info .card-img-top {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
 }
 .teams .table {
   color: white;
