@@ -21,7 +21,6 @@ router.get("/", async (req, res, next) => {
     const randomPlayer = await apiService.getOnePlayer(randomNumber);
     const randomPlayer2 = await apiService.getOnePlayer(randomNumber2);
     const randomPlayer3 = await apiService.getOnePlayer(randomNumber3);
-    // console.log(randomPlayer);
     const imageRandomPlayer = await apiService2.getPlayerImage(
       randomPlayer.data.name
     );
@@ -32,8 +31,6 @@ router.get("/", async (req, res, next) => {
       randomPlayer3.data.name
     );
     const allNews = await apiService3.getAllNews();
-    console.log(allNews);
-    console.log(imageRandomPlayer.data.data[1]);
     res.render("home", {
       randomPlayer: randomPlayer.data,
       randomPlayerImage: imageRandomPlayer.data.data[0],

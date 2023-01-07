@@ -22,7 +22,7 @@ class ApiService {
         return response.data
       })
       .catch((err) => {
-        console.log(err);
+        next(err)
       });
   };
 }

@@ -121,7 +121,6 @@ router.get("/edit", isLoggedIn, (req, res, next) => {
 
 router.post("/edit", fileUploader.single('picture_url'), isLoggedIn, async (req, res, next) => {
   try {
-    console.log(req.body)
     const { username, email, oldPassword, newPassword, confirmedNewPassword } =
       req.body;
     const userID = req.user._id;
@@ -139,8 +138,6 @@ router.post("/edit", fileUploader.single('picture_url'), isLoggedIn, async (req,
       updateUser.picture_url = req.file.path;
     }
 
-    console.log("updateUSer", updateUser);
-
     if (oldPassword && newPassword && confirmedNewPassword) {
       if (newPassword === confirmedNewPassword) {
         try {
@@ -152,11 +149,8 @@ router.post("/edit", fileUploader.single('picture_url'), isLoggedIn, async (req,
             passwordHash = await bcrypt.hash(newPassword, salt);
           }
         } catch (error) {
-          console.log(error);
         }
       } else {
-        console.log("passwords do not match");
-        // passwords do not match
       }
     }
     if (passwordHash) {

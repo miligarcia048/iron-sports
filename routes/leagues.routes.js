@@ -41,7 +41,6 @@ router.get("/leagues/:leagueID/teams", async (req, res, next) => {
 
     const leagueStandings = await apiService.getLeagueStandings(leagueCode);
 
-    console.log(leagueTeams.data.teams);
     res.render("leagues/teams", {
       teams: leagueTeams.data.teams,
       matches: leagueMatches.data.matches,
@@ -62,7 +61,6 @@ router.get("/leagues/:teamID/team", async (req, res, next) => {
 
     const { teamID } = req.params;
     const selectedTeam = await apiService.getOneTeam(teamID);
-    console.log(selectedTeam.data.runningCompetitions[0].name);
     res.render("leagues/team-info", {
       team: selectedTeam.data,
       user
