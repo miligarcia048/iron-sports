@@ -9,70 +9,79 @@
     <div class="container mt-4 leagues">
       <h1 class="mb-6" data-aos="zoom-in">Check the top leagues</h1>
       <div class="row row-cols-1 row-cols-md-5 g-5" data-aos="fade-up">
-        {{#each competitions}}
-          <div class="col d-flex align-items-stretch justify-content-center">
-            <div class="card leagues-card" style="width: 18rem;">
-              <div class="image-div">
-                <img src="{{emblem}}" class="card-img-top" alt="..." />
-              </div>
-              <div class="card-body">
-                <div class="d-flex">
-                  <h5 class="card-title">{{name}}</h5>
-                  <form action="/favorites" method="post">
-                    <input
-                      type="text"
-                      name="flag"
-                      value="{{area.flag}}"
-                      style="display: none;"
-                    />
-                    <input
-                      type="text"
-                      name="name"
-                      value="{{name}}"
-                      style="display: none;"
-                    />
-                    <input
-                      type="number"
-                      name="id"
-                      value="{{id}}"
-                      style="display: none;"
-                    />
-                    {{#if @root.user}}
-                      {{#isValueInKey @root.user.favorites name "name"}}
-                        <span class="fa fa-star checked"></span>
-                      {{else}}
-                        <button type="submit" class="star-button"><span
-                            class="fa fa-star"
-                          ></span></button>
-                      {{/isValueInKey}}
-                    {{/if}}
-                    {{#unless @root.user}}
-                      <a href="/login">
-                        <span class="fa fa-star"></span>
-                      </a>
-                    {{/unless}}
-                  </form>
-                </div>
-                <div class="d-flex">
-                  {{#if area.flag}}
-                    <div>
-                      <img
-                        src="{{area.flag}}"
-                        class="card-img-top"
-                        alt="..."
-                        width="24px"
-                        height="24px"
-                      />
-                    </div>
-                  {{/if}}
 
-                  <p class="card-text ms-2">{{area.code}}</p>
+        {{#each competitions}}
+          {{#ifEquals name "Copa Libertadores"}}{{else}}
+            {{#ifEquals name "Campeonato Brasileiro Série A"}}{{else}}
+              <div
+                class="col d-flex align-items-stretch justify-content-center"
+              >
+                <div class="card leagues-card" style="width: 18rem;">
+                  <div class="image-div">
+                    <img src="{{emblem}}" class="card-img-top" alt="..." />
+                  </div>
+                  <div class="card-body">
+                    <div class="d-flex">
+                      <h5 class="card-title">{{name}}</h5>
+                      <form action="/favorites" method="post">
+                        <input
+                          type="text"
+                          name="flag"
+                          value="{{area.flag}}"
+                          style="display: none;"
+                        />
+                        <input
+                          type="text"
+                          name="name"
+                          value="{{name}}"
+                          style="display: none;"
+                        />
+                        <input
+                          type="number"
+                          name="id"
+                          value="{{id}}"
+                          style="display: none;"
+                        />
+                        {{#if @root.user}}
+                          {{#isValueInKey @root.user.favorites name "name"}}
+                            <span class="fa fa-star checked"></span>
+                          {{else}}
+                            <button type="submit" class="star-button"><span
+                                class="fa fa-star"
+                              ></span></button>
+                          {{/isValueInKey}}
+                        {{/if}}
+                        {{#unless @root.user}}
+                          <a href="/login">
+                            <span class="fa fa-star"></span>
+                          </a>
+                        {{/unless}}
+                      </form>
+                    </div>
+                    <div class="d-flex">
+                      {{#if area.flag}}
+                        <div>
+                          <img
+                            src="{{area.flag}}"
+                            class="card-img-top"
+                            alt="..."
+                            width="24px"
+                            height="24px"
+                          />
+                        </div>
+                      {{/if}}
+
+                      <p class="card-text ms-2">{{area.code}}</p>
+                    </div>
+                    <a
+                      href="leagues/{{id}}/teams"
+                      class="btn button-check"
+                    >Check League</a>
+                  </div>
                 </div>
-                <a href="leagues/{{id}}/teams" class="btn button-check">Check
-                  League</a>
               </div>
-            </div>
-          </div>
+            {{/ifEquals}}
+          {{/ifEquals}}
         {{/each}}
       </div>
     </div>
