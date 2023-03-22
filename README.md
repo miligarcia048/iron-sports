@@ -1,13 +1,13 @@
 # Iron-Sports
 
-### Description
+## Description
 
 The goal was to develop a Football Website/App to check the latest news, scores and standings. 
 
 Iron-Sports was created using technologies such as MongoDB, Express.js, Node.js, Handlebars, HTML, CSS, Bootstrap, JavaScript, npm packages and Third-Party APIS.
 
 
-# Responsive
+### Responsive
 
 Iron-Sports is responsive and it is compatible with most mobiles! 
 
